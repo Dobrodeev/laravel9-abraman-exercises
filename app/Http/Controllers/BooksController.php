@@ -30,55 +30,17 @@ class BooksController extends Controller
      */
     public function show($id = '')
     {
-        /**
-         * Дано трехзначное число. Используя одну операцию деления нацело, вывести первую цифру данного числа (сотни).
-         * @param  int  $number
-         * @return int
-         */
-        function integer9(int $number): int
-        {
-            $first = (int) $number / 100;
-            return $first;
-        }
-
-//        $first_number = integer9(103);
-//        echo 'First number 103 is: '.$first_number.'<br>';
-        /**
-         * Дано трехзначное число. Вывести вначале его последнюю цифру (единицы), а затем — его среднюю цифру (десятки).
-         * @param  int  $number
-         * @return array|int[]
-         */
-        function integer10(int $number): array
-        {
-            $last = $number % 100;
-            $middle = ($number / 10) % 10;
-            return [$last, $middle];
-        }
-
-//        $result_three_number = integer10(103);
-//        echo " Сначала последняя цифра, потом средняя для числа 103: $result_three_number[0], $result_three_number[1]<br>";
-        /**
-         * Дано трехзначное число. Найти цифры этого числа
-         * @param  int  $number
-         * @return array|int[]
-         */
-        function integer11numbers(int $number): array
-        {
-            $first = (int ) ($number / 100);
-            $second = (int) ($number / 10) % 10;
-            $third = $number % 10;
-            return [$first, $second, $third];
-        }
-
-        unset($result_three_number);
+        
+        //unset($result_three_number);
         // $text = integer11numbers(103);
-        $number2 = $this->integer6(self::NUMBER_2);
+        /** $number2 = $this->integer6(self::NUMBER_2);
         echo ' Для двузначного числа: '.self::NUMBER_2.' : '.$number2[0].' '.$number2[1].'<br>';
         $number8 = $this->integer8(self::NUMBER_2);
         echo " Для двузначного числа NUMBER_2 преставили цифры: $number8 <br>";
         $integer11 = $this->integer11(integer11numbers(self::NUMBER_3));
+        */
 //        $integer11 = $this->integer11([1, 2, 1]);
-        echo " Для трехзанчного числа NUMBER_3 сумма и произведение его цифр: $integer11[0], $integer11[1] <br>";
+        /** echo " Для трехзанчного числа NUMBER_3 сумма и произведение его цифр: $integer11[0], $integer11[1] <br>";
         $integer12 = $this->integer12(integer11numbers(self::NUMBER_3));
         echo 'Число справа налево: '.$integer12.'<br>';
         $integer13 = $this->integer13(integer11numbers(self::NUMBER_3));
@@ -91,8 +53,11 @@ class BooksController extends Controller
         print_r($integer11numbers);
         echo '</pre>';
         dump($integer11numbers);
+        */
         // return view('welcome', ['text' => $text]);
-        return view('welcome');
+        $integer11numbers = $this->integer11numbers(121);
+        // dump($integer11numbers);
+        return view('welcome', ['integer11numbers'=>$integer11numbers]);
     }
 
     /**
@@ -133,6 +98,47 @@ class BooksController extends Controller
         $right = $number % 10;
         return (int) ($right.$left);
     }
+
+    /**
+         * Дано трехзначное число. Используя одну операцию деления нацело, вывести первую цифру данного числа (сотни).
+         * @param  int  $number
+         * @return int
+         */
+        public function integer9(int $number): int
+        {
+            $first = (int) $number / 100;
+            return $first;
+        }
+
+//        $first_number = integer9(103);
+//        echo 'First number 103 is: '.$first_number.'<br>';
+        /**
+         * Дано трехзначное число. Вывести вначале его последнюю цифру (единицы), а затем — его среднюю цифру (десятки).
+         * @param  int  $number
+         * @return array|int[]
+         */
+        public function integer10(int $number): array
+        {
+            $last = $number % 100;
+            $middle = ($number / 10) % 10;
+            return [$last, $middle];
+        }
+
+//        $result_three_number = integer10(103);
+//        echo " Сначала последняя цифра, потом средняя для числа 103: $result_three_number[0], $result_three_number[1]<br>";
+        /**
+         * Дано трехзначное число. Найти цифры этого числа
+         * @param  int  $number
+         * @return array|int[]
+         */
+        public function integer11numbers(int $number): array
+        {
+            $first = (int ) ($number / 100);
+            $second = (int) ($number / 10) % 10;
+            $third = $number % 10;
+            return [$first, $second, $third];
+        }
+
 
     /**
      * Дано трехзначное число. Найти сумму и произведение его цифр.
@@ -277,6 +283,109 @@ class BooksController extends Controller
         return (int) (($seconds - $hours) / 60);
     }
 
+    public function boolean1($a){
+        if($a > 0) return true;
+    }
+
+    public function boolean2($a){
+        if($a %2 != 0) return true;
+    }
+
+    public function boolean3($a){
+        if($a %2 == 0) return true;
+    }
+
+    public function boolean4($a, $b){
+        if($a > 2 and $b <= 3) return true;
+    }
+
+    public function boolean5($a, $b) : bool{
+        if($a >= 0 and $b < -2) return true;
+    }
+
+    public function boolean6(int $a, $b, $c) : bool
+    {
+        if($a < $b and $b < $c) return true;
+    }
+
+    public function boolean7(int $a, $b, $c) : bool
+    {
+        if($a - $b < $b - $c) return true;
+    }
+
+    public function boolean8(int $a, $b) : bool
+    {
+        if($a %2 != 0 and $b %2 != 0) return true;
+    }
+
+    public function boolean9(int $a, $b) : bool
+    {
+        if($a %2 != 0 or $b %2 != 0) return true;
+    }
+
+    public function boolean10(int $a, $b) : bool
+    {
+        if($a %2 != 0 or $b %2 != 0) return true;
+    }
+
+    public function boolean11(int $a, $b) : bool
+    {
+        if($a % $b == 0 and $b % $a == 0) return true;
+    }
+
+    public function boolean12(int $a, $b, $c) : bool
+    {
+        if($a > 0 and $b > 0 and $c > 0) return true;
+    }
+
+    public function boolean13(int $a, $b, $c) : bool
+    {
+        if($a > 0 or $b > 0 or $c > 0) return true;
+    }
+
+    public function boolean14(int $a, $b, $c) : bool
+    {
+        if(($a > 0 and $b < 0 and $c < 0) or ($b > 0 and $a < 0 and $c <0) or ($c > 0 and $a < 0 and $b < 0)) return true;
+        // -1 * -2 * -3 = -6
+        // -1 * 2 * 3 = -6
+        // -1 * 2 * -3 = 6
+    }
+    public function boolean15(int $a, $b, $c) : bool
+    {
+        if(($a > 0 and $b > 0) or ($a > 0 and $c > 0) or ($b > 0 and $c > 0)) return true;
+    }
+
+    public function boolean16a(int $a) : bool
+    {
+        if($a %2 == 0 and (int)($a / 10) > 0) return true;
+        // 196/100 = 1.96
+        // 196/1000 = 0.196
+        // 96/10 = 9.6
+        // 961/10 = 96
+        // (int)196 / 100 = 1.96 -> 1
+        // (int)196/10 = 19.6 -> 19 % 10 -> 9
+        // 196 % 10 = 6
+
+        //(int)1996 / 1000 = 1.996 -> 1
+        // 1996 % 10 = 6
+        // (int)1996 / 100 = 19.96 -> 19 % 10 = 9
+        // (int)1996 / 10 = 199.6 - > 199 % 10 = 9
+    }
+
+    public function boolean16(int $a) : bool
+        {
+            if($a %2 == 0 and ((int)($a / 10) > 0) and ((int)($a / 10) < 10)) return true;
+            // 196/100 = 1.96
+            // 196/1000 = 0.196
+            // 96/10 = 9.6
+        }
+
+    public function boolean17(int $a) : bool
+    {
+        if($a %2 != 0 and ((int)($a / 100) > 0) and ((int)($a / 100) > 10)) return true;
+    }
+
+    
     /**
      *
      */
