@@ -55,11 +55,16 @@ class BooksController extends Controller
          * dump($integer11numbers);
          */
         // return view('welcome', ['text' => $text]);
-        $integer11numbers = $this->integer11numbers(121);
+        $numbers = $this->integer11numbers(121);
+        // $integer11numbers = 121;
 //         dump($integer11numbers);
         $booleanResult = $this->boolean1(0);
+        $boolean = $this->boolean23(1231);
         dump($booleanResult);
-        return view('welcome', ['integer11numbers' => $integer11numbers]);
+        dump($numbers);
+        dump($boolean);
+        return view('welcome', ['numbers' => $numbers]);
+        // return view('welcome')->with('numbers', $numbers2);
     }
 
     /**
@@ -286,7 +291,7 @@ class BooksController extends Controller
     }
 
     /**
-     * Дано целое число а, проверить является ли оно положительным
+     * Дано целое число A. Проверить истинность высказывания: «Число A является положительным».
      * @param $a
      * @return bool
      */
@@ -297,6 +302,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Дано целое число A. Проверить истинность высказывания: «Число A является нечетным».
      * @param $a
      * @return bool
      */
@@ -306,6 +312,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Дано целое число A. Проверить истинность высказывания: «Число Aявляется четным».
      * @param $a
      * @return bool
      */
@@ -315,6 +322,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Справедливы неравенства A > 2 и B ≤ 3».
      * @param $a
      * @param $b
      * @return bool
@@ -325,6 +333,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Справедливы неравенства A ≥ 0 или B < –2».
      * @param $a
      * @param $b
      * @return bool
@@ -335,6 +344,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Справедливо двойное неравенство A < B < C».
      * @param int $a
      * @param $b
      * @param $c
@@ -346,6 +356,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Число B находится между числами A и C».
      * @param int $a
      * @param $b
      * @param $c
@@ -357,6 +368,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Каждое из чисел A и B нечетное».
      * @param int $a
      * @param $b
      * @return bool
@@ -367,6 +379,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Хотя бы одно из чисел A и B нечетное».
      * @param int $a
      * @param $b
      * @return bool
@@ -377,6 +390,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Ровно одно из чисел A и B нечетное».
      * @param int $a
      * @param $b
      * @return bool
@@ -387,6 +401,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны два целых числа: A, B. Проверить истинность высказывания: «Числа A и B имеют одинаковую четность».
      * @param int $a
      * @param $b
      * @return bool
@@ -397,6 +412,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Каждое из чисел A, B, C положительное».
      * @param int $a
      * @param $b
      * @param $c
@@ -408,6 +424,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Хотя бы одно из чисел A, B, C положительное».
      * @param int $a
      * @param $b
      * @param $c
@@ -419,6 +436,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Ровно одно из чисел A, B, C положительное».
      * @param int $a
      * @param $b
      * @param $c
@@ -433,6 +451,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Ровно два из чисел A, B, C являются положительными».
      * @param int $a
      * @param $b
      * @param $c
@@ -444,6 +463,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Дано целое положительное число. Проверить истинность высказывания: «Данное число является четным двузначным».
      * @param int $a
      * @return bool
      */
@@ -457,14 +477,10 @@ class BooksController extends Controller
         // (int)196 / 100 = 1.96 -> 1
         // (int)196/10 = 19.6 -> 19 % 10 -> 9
         // 196 % 10 = 6
-
-        //(int)1996 / 1000 = 1.996 -> 1
-        // 1996 % 10 = 6
-        // (int)1996 / 100 = 19.96 -> 19 % 10 = 9
-        // (int)1996 / 10 = 199.6 - > 199 % 10 = 9
     }
 
     /**
+     * Дано целое положительное число. Проверить истинность высказывания: «Данное число является четным двузначным».
      * @param int $a
      * @return bool
      */
@@ -477,6 +493,7 @@ class BooksController extends Controller
     }
 
     /**
+     * Дано целое положительное число. Проверить истинность высказывания: «Данное число является нечетным трехзначным»
      * @param int $a
      * @return bool
      */
@@ -484,8 +501,79 @@ class BooksController extends Controller
     {
         if ($a % 2 != 0 and ((int)($a / 100) > 0) and ((int)($a / 100) > 10)) return true;
     }
+    //Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы одна пара совпадающих».
+    public function boolean18(int $a, $b, $c): bool
+    {
+        if ($a == $b or $b == $c or $a == $c) return true;
+    }
+    //Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы одна пара взаимно противоположных».
+    public function boolean19(int $a, $b, $c): bool
+    {
+        if ($a == -$b or $b == -$c or $a == -$c) return true;
+    }
+    //Дано трехзначное число. Проверить истинность высказывания: «Все цифры данного числа различны».
+    public function boolean20($a){
+        $first = (int)($a/100);
+        $second = (int)($a/10) % 10;
+        $third = $a % 10;
+        if($first != $second and $second != $third and $first != $third) return true;
+    }
+    public function boolean21($a){
+        $first = (int)($a/100);
+        $second = (int)($a/10) % 10;
+        $third = $a % 10;
+        if($first < $second and $second < $third) return true;
+    }
 
-
+    public function boolean22($a){
+        $first = (int)($a/100);
+        $second = (int)($a/10) % 10;
+        $third = $a % 10;
+        if(($first < $second and $second < $third) or ($first > $second and $second > $third)) return true;
+        //(int)1996 / 1000 = 1.996 -> 1        
+        // (int)1996 / 100 = 19.96 -> 19 % 10 = 9
+         // (int)1996 / 10 = 199.6 - > 199 % 10 = 9
+        // 1996 % 10 = 6
+    }
+    //Дано четырехзначное число. Проверить истинность высказывания: «Данное число читается одинаково слева направо и справа налево».
+    public function boolean23($a){
+        $first = (int)($a/1000);
+        $second = (int)($a/100) % 10;
+        $third = (int)($a/10) % 10;
+        $fourth = $a % 10;
+        echo $first, $second, $third, $fourth;
+        dump($first);
+        dump($second);
+        if($first == $fourth and $second == $third) return true;
+        // if($first == $second) return true;
+        // else return false;
+    }
+    
+    public function boolean24($a, $b, $c): bool
+    {
+        $discriminant = $b * $b - 4 * $a *$c;
+        if($discriminant >= 0) return true;
+    }
+    //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит во второй координатной четверти».
+    public function boolean25(float $x, $y): bool
+    {
+        if($x < 0 and $y > 0) return true;
+    }
+    //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит в четвертой координатной четверти».
+    public function boolean26(float $x, $y): bool
+    {
+        if($x > 0 and $y < 0) return true;
+    }
+    //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит во второй или третьей координатной четверти»
+    public function boolean27(float $x, $y): bool
+    {
+        if(($x < 0 and $y > 0) or ($x < 0 and $y < 0)) return true;
+    }
+    //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит в первой или третьей координатной четверти».
+    public function boolean28(float $x, $y): bool
+    {
+        if(($x < 0 and $y > 0) or ($x < 0 and $y < 0)) return true;
+    }
     /**
      *
      */
