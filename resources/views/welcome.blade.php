@@ -60,7 +60,10 @@
                                     {{$numbers[0]}}
                                     {{$numbers[1]}}
                                     {{$numbers[2]}}
-                                    
+                                    <p>Число состоит из цифр:</p>
+                                    @foreach ($numbers as $user)
+                                        <p> {{ $user }}</p>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

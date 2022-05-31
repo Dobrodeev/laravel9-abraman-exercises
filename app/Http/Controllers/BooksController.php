@@ -24,8 +24,29 @@ class BooksController extends Controller
      */
     private const TEXT_STRING = 'Text is string and simple.';
 
+    public function showAllBooks()
+    {
+
+    }
+
+    public function addNewBook()
+    {
+
+    }
+
+    public function updateBook()
+    {
+
+    }
+
+
+    public function showBookInfo()
+    {
+
+    }
+
     /**
-     * @param string $id
+     * @param  string  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show($id = '')
@@ -63,31 +84,34 @@ class BooksController extends Controller
         dump($booleanResult);
         dump($numbers);
         dump($boolean);
-        return view('welcome', ['numbers' => $numbers]);
-        // return view('welcome')->with('numbers', $numbers2);
+        $for_x = 0;
+        $result_x = $this->if2($for_x);
+        dump($for_x);
+        // return view('welcome', ['numbers' => $numbers]);
+        return view('welcome')->with('numbers', $numbers);
     }
 
     /**
      * Дано двузначное число. Вывести вначале его левую цифру (десятки), а затем — его правую цифру (единицы).
      * Для нахождения десятков использовать операцию деления нацело, для нахождения единиц — операцию взятия остатка от деления.
-     * @param int $number
+     * @param  int  $number
      * @return array|int[]
      */
     public function integer6(int $number): array
     {
-        $left = (int)($number / 10);
+        $left = (int) ($number / 10);
         $right = $number % 10;
         return [$left, $right];
     }
 
     /**
      * Дано двузначное число. Найти сумму и произведение его цифр.
-     * @param int $number
+     * @param  int  $number
      * @return array
      */
     public function integer7(int $number): array
     {
-        $left = (int)($number / 10);
+        $left = (int) ($number / 10);
         $right = $number % 10;
         $sum = $left + $right;
         $product = $left * $right;
@@ -96,24 +120,24 @@ class BooksController extends Controller
 
     /**
      * Дано двузначное число. Вывести число, полученное при перестановке цифр исходного числа.
-     * @param int $number
+     * @param  int  $number
      * @return int
      */
     public function integer8(int $number): int
     {
-        $left = (int)($number / 10);
+        $left = (int) ($number / 10);
         $right = $number % 10;
-        return (int)($right . $left);
+        return (int) ($right.$left);
     }
 
     /**
      * Дано трехзначное число. Используя одну операцию деления нацело, вывести первую цифру данного числа (сотни).
-     * @param int $number
+     * @param  int  $number
      * @return int
      */
     public function integer9(int $number): int
     {
-        $first = (int)$number / 100;
+        $first = (int) $number / 100;
         return $first;
     }
 
@@ -121,7 +145,7 @@ class BooksController extends Controller
 //        echo 'First number 103 is: '.$first_number.'<br>';
     /**
      * Дано трехзначное число. Вывести вначале его последнюю цифру (единицы), а затем — его среднюю цифру (десятки).
-     * @param int $number
+     * @param  int  $number
      * @return array|int[]
      */
     public function integer10(int $number): array
@@ -135,13 +159,13 @@ class BooksController extends Controller
 //        echo " Сначала последняя цифра, потом средняя для числа 103: $result_three_number[0], $result_three_number[1]<br>";
     /**
      * Дано трехзначное число. Найти цифры этого числа
-     * @param int $number
+     * @param  int  $number
      * @return array|int[]
      */
     public function integer11numbers(int $number): array
     {
-        $first = (int )($number / 100);
-        $second = (int)($number / 10) % 10;
+        $first = (int ) ($number / 100);
+        $second = (int) ($number / 10) % 10;
         $third = $number % 10;
         return [$first, $second, $third];
     }
@@ -149,7 +173,7 @@ class BooksController extends Controller
 
     /**
      * Дано трехзначное число. Найти сумму и произведение его цифр.
-     * @param array $number
+     * @param  array  $number
      * @return array
      */
     public function integer11(array $number): array
@@ -164,130 +188,130 @@ class BooksController extends Controller
 
     /**
      * Дано трехзначное число. Вывести число, полученное при прочтении исходного числа справа налево.
-     * @param array $number
+     * @param  array  $number
      * @return int
      */
     public function integer12(array $number): int
     {
 //        $result = (int) ($number[2].$number[1].$number[0]);
-        return (int)($number[2] . $number[1] . $number[0]);
+        return (int) ($number[2].$number[1].$number[0]);
     }
 
     /**
      * Дано трехзначное число. В нем зачеркнули первую слева цифру и приписали ее справа. Вывести полученное число.
-     * @param array $number
+     * @param  array  $number
      * @return int
      */
     public function integer13(array $number): int
     {
-        return (int)($number[1] . $number[2] . $number[0]);
+        return (int) ($number[1].$number[2].$number[0]);
     }
 
     /**
      * Дано трехзначное число. В нем зачеркнули первую справа цифру приписали ее слева. Вывести полученное число.
-     * @param array $number
+     * @param  array  $number
      * @return int
      */
     public function integer14(array $number): int
     {
-        return (int)($number[2] . $number[1] . $number[0]);
+        return (int) ($number[2].$number[1].$number[0]);
     }
 
     /**
      * Дано трехзначное число. Вывести число, полученное при перестановке цифр сотен и десятков исходного числа
      * (например, 123 перейдет в 213).
-     * @param array $number
+     * @param  array  $number
      * @return int
      */
     public function integer15(array $number): int
     {
-        return (int)($number[1] . $number[0] . $number[2]);
+        return (int) ($number[1].$number[0].$number[2]);
     }
 
     /**
      * Дано трехзначное число. Вывести число, полученное при перестановке цифр десятков и единиц исходного числа
      * (например, 123 перейдет в 132).
-     * @param array $number
+     * @param  array  $number
      * @return int
      */
     public function integer16(array $number): int
     {
-        return (int)($number[0] . $number[2] . $number[1]);
+        return (int) ($number[0].$number[2].$number[1]);
     }
 
     /**
      * Дано целое число, большее 999. Используя одну операцию деления нацело и одну операцию взятия остатка от
      * деления, найти цифру, соответствующую разряду сотен в записи этого числа.
-     * @param int $number
+     * @param  int  $number
      * @return int
      */
     public function integer17(int $number): int
     {
-        return (int)($number / 100) % 10;
+        return (int) ($number / 100) % 10;
     }
 
     /**
      * Дано целое число, большее 999. Используя одну операцию деления нацело и одну операцию взятия остатка от
      * деления, найти цифру, соответствующую разряду тысяч в записи этого числа.
-     * @param int $number
+     * @param  int  $number
      * @return int
      */
     public function integer18(int $number): int
     {
-        return (int)($number / 1000);
+        return (int) ($number / 1000);
     }
 
     /**
      * С начала суток прошло N секунд (N — целое). Найти количество полных минут, прошедших с начала суток.
-     * @param int $seconds
+     * @param  int  $seconds
      * @return int
      */
     public function integer19(int $seconds): int
     {
-        return (int)($seconds / 60);
+        return (int) ($seconds / 60);
     }
 
     /**
      * С начала суток прошло N секунд (N — целое). Найти количество полных часов, прошедших с начала суток.
-     * @param int $seconds
+     * @param  int  $seconds
      * @return int
      */
     public function integer20(int $seconds): int
     {
-        $hours = (int)($seconds / 3600);
+        $hours = (int) ($seconds / 3600);
     }
 
     /**
      * С начала суток прошло N секунд (N — целое). Найти количество секунд, прошедших с начала последней минуты.
-     * @param int $seconds
+     * @param  int  $seconds
      * @return int
      */
     public function integer21(int $seconds): int
     {
-        $minutes = (int)($seconds / 60);
+        $minutes = (int) ($seconds / 60);
         return $seconds - $minutes;
     }
 
     /**
      * С начала суток прошло N секунд (N — целое). Найти количество секунд, прошедших с начала последнего часа.
-     * @param int $seconds
+     * @param  int  $seconds
      * @return int
      */
     public function integer22(int $seconds): int
     {
-        $hours = (int)($seconds / 3600);
+        $hours = (int) ($seconds / 3600);
         return $seconds - $hours;
     }
 
     /**
      * С начала суток прошло N секунд (N — целое). Найти количество полных минут, прошедших с начала последнего часа.
-     * @param int $seconds
+     * @param  int  $seconds
      * @return int
      */
     public function integer23(int $seconds): int
     {
-        $hours = (int)($seconds / 3600);
-        return (int)(($seconds - $hours) / 60);
+        $hours = (int) ($seconds / 3600);
+        return (int) (($seconds - $hours) / 60);
     }
 
     /**
@@ -297,8 +321,11 @@ class BooksController extends Controller
      */
     public function boolean1($a): bool
     {
-        if ($a > 0) return true;
-        else return false;
+        if ($a > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -308,7 +335,9 @@ class BooksController extends Controller
      */
     public function boolean2($a)
     {
-        if ($a % 2 != 0) return true;
+        if ($a % 2 != 0) {
+            return true;
+        }
     }
 
     /**
@@ -318,7 +347,9 @@ class BooksController extends Controller
      */
     public function boolean3($a)
     {
-        if ($a % 2 == 0) return true;
+        if ($a % 2 == 0) {
+            return true;
+        }
     }
 
     /**
@@ -329,7 +360,9 @@ class BooksController extends Controller
      */
     public function boolean4($a, $b)
     {
-        if ($a > 2 and $b <= 3) return true;
+        if ($a > 2 and $b <= 3) {
+            return true;
+        }
     }
 
     /**
@@ -340,111 +373,131 @@ class BooksController extends Controller
      */
     public function boolean5($a, $b): bool
     {
-        if ($a >= 0 and $b < -2) return true;
+        if ($a >= 0 and $b < -2) {
+            return true;
+        }
     }
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Справедливо двойное неравенство A < B < C».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean6(int $a, $b, $c): bool
     {
-        if ($a < $b and $b < $c) return true;
+        if ($a < $b and $b < $c) {
+            return true;
+        }
     }
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Число B находится между числами A и C».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean7(int $a, $b, $c): bool
     {
-        if ($a - $b < $b - $c) return true;
+        if ($a - $b < $b - $c) {
+            return true;
+        }
     }
 
     /**
      * Даны два целых числа: A, B. Проверить истинность высказывания: «Каждое из чисел A и B нечетное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @return bool
      */
     public function boolean8(int $a, $b): bool
     {
-        if ($a % 2 != 0 and $b % 2 != 0) return true;
+        if ($a % 2 != 0 and $b % 2 != 0) {
+            return true;
+        }
     }
 
     /**
      * Даны два целых числа: A, B. Проверить истинность высказывания: «Хотя бы одно из чисел A и B нечетное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @return bool
      */
     public function boolean9(int $a, $b): bool
     {
-        if ($a % 2 != 0 or $b % 2 != 0) return true;
+        if ($a % 2 != 0 or $b % 2 != 0) {
+            return true;
+        }
     }
 
     /**
      * Даны два целых числа: A, B. Проверить истинность высказывания: «Ровно одно из чисел A и B нечетное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @return bool
      */
     public function boolean10(int $a, $b): bool
     {
-        if ($a % 2 != 0 or $b % 2 != 0) return true;
+        if ($a % 2 != 0 or $b % 2 != 0) {
+            return true;
+        }
     }
 
     /**
      * Даны два целых числа: A, B. Проверить истинность высказывания: «Числа A и B имеют одинаковую четность».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @return bool
      */
     public function boolean11(int $a, $b): bool
     {
-        if ($a % $b == 0 and $b % $a == 0) return true;
+        if ($a % $b == 0 and $b % $a == 0) {
+            return true;
+        }
     }
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Каждое из чисел A, B, C положительное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean12(int $a, $b, $c): bool
     {
-        if ($a > 0 and $b > 0 and $c > 0) return true;
+        if ($a > 0 and $b > 0 and $c > 0) {
+            return true;
+        }
     }
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Хотя бы одно из чисел A, B, C положительное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean13(int $a, $b, $c): bool
     {
-        if ($a > 0 or $b > 0 or $c > 0) return true;
+        if ($a > 0 or $b > 0 or $c > 0) {
+            return true;
+        }
     }
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Ровно одно из чисел A, B, C положительное».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean14(int $a, $b, $c): bool
     {
-        if (($a > 0 and $b < 0 and $c < 0) or ($b > 0 and $a < 0 and $c < 0) or ($c > 0 and $a < 0 and $b < 0)) return true;
+        if (($a > 0 and $b < 0 and $c < 0) or ($b > 0 and $a < 0 and $c < 0) or ($c > 0 and $a < 0 and $b < 0)) {
+            return true;
+        }
         // -1 * -2 * -3 = -6
         // -1 * 2 * 3 = -6
         // -1 * 2 * -3 = 6
@@ -452,24 +505,28 @@ class BooksController extends Controller
 
     /**
      * Даны три целых числа: A, B, C. Проверить истинность высказывания: «Ровно два из чисел A, B, C являются положительными».
-     * @param int $a
+     * @param  int  $a
      * @param $b
      * @param $c
      * @return bool
      */
     public function boolean15(int $a, $b, $c): bool
     {
-        if (($a > 0 and $b > 0) or ($a > 0 and $c > 0) or ($b > 0 and $c > 0)) return true;
+        if (($a > 0 and $b > 0) or ($a > 0 and $c > 0) or ($b > 0 and $c > 0)) {
+            return true;
+        }
     }
 
     /**
      * Дано целое положительное число. Проверить истинность высказывания: «Данное число является четным двузначным».
-     * @param int $a
+     * @param  int  $a
      * @return bool
      */
     public function boolean16a(int $a): bool
     {
-        if ($a % 2 == 0 and (int)($a / 10) > 0) return true;
+        if ($a % 2 == 0 and (int) ($a / 10) > 0) {
+            return true;
+        }
         // 196/100 = 1.96
         // 196/1000 = 0.196
         // 96/10 = 9.6
@@ -481,12 +538,14 @@ class BooksController extends Controller
 
     /**
      * Дано целое положительное число. Проверить истинность высказывания: «Данное число является четным двузначным».
-     * @param int $a
+     * @param  int  $a
      * @return bool
      */
     public function boolean16(int $a): bool
     {
-        if ($a % 2 == 0 and ((int)($a / 10) > 0) and ((int)($a / 10) < 10)) return true;
+        if ($a % 2 == 0 and ((int) ($a / 10) > 0) and ((int) ($a / 10) < 10)) {
+            return true;
+        }
         // 196/100 = 1.96
         // 196/1000 = 0.196
         // 96/10 = 9.6
@@ -494,115 +553,189 @@ class BooksController extends Controller
 
     /**
      * Дано целое положительное число. Проверить истинность высказывания: «Данное число является нечетным трехзначным»
-     * @param int $a
+     * @param  int  $a
      * @return bool
      */
     public function boolean17(int $a): bool
     {
-        if ($a % 2 != 0 and ((int)($a / 100) > 0) and ((int)($a / 100) > 10)) return true;
+        if ($a % 2 != 0 and ((int) ($a / 100) > 0) and ((int) ($a / 100) > 10)) {
+            return true;
+        }
     }
+
     //Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы одна пара совпадающих».
     public function boolean18(int $a, $b, $c): bool
     {
-        if ($a == $b or $b == $c or $a == $c) return true;
+        if ($a == $b or $b == $c or $a == $c) {
+            return true;
+        }
     }
+
     //Проверить истинность высказывания: «Среди трех данных целых чисел есть хотя бы одна пара взаимно противоположных».
     public function boolean19(int $a, $b, $c): bool
     {
-        if ($a == -$b or $b == -$c or $a == -$c) return true;
-    }
-    //Дано трехзначное число. Проверить истинность высказывания: «Все цифры данного числа различны».
-    public function boolean20($a){
-        $first = (int)($a/100);
-        $second = (int)($a/10) % 10;
-        $third = $a % 10;
-        if($first != $second and $second != $third and $first != $third) return true;
-    }
-    public function boolean21($a){
-        $first = (int)($a/100);
-        $second = (int)($a/10) % 10;
-        $third = $a % 10;
-        if($first < $second and $second < $third) return true;
+        if ($a == -$b or $b == -$c or $a == -$c) {
+            return true;
+        }
     }
 
-    public function boolean22($a){
-        $first = (int)($a/100);
-        $second = (int)($a/10) % 10;
+    //Дано трехзначное число. Проверить истинность высказывания: «Все цифры данного числа различны».
+    public function boolean20($a)
+    {
+        $first = (int) ($a / 100);
+        $second = (int) ($a / 10) % 10;
         $third = $a % 10;
-        if(($first < $second and $second < $third) or ($first > $second and $second > $third)) return true;
-        //(int)1996 / 1000 = 1.996 -> 1        
+        if ($first != $second and $second != $third and $first != $third) {
+            return true;
+        }
+    }
+
+    public function boolean21($a)
+    {
+        $first = (int) ($a / 100);
+        $second = (int) ($a / 10) % 10;
+        $third = $a % 10;
+        if ($first < $second and $second < $third) {
+            return true;
+        }
+    }
+
+    public function boolean22($a)
+    {
+        $first = (int) ($a / 100);
+        $second = (int) ($a / 10) % 10;
+        $third = $a % 10;
+        if (($first < $second and $second < $third) or ($first > $second and $second > $third)) {
+            return true;
+        }
+        //(int)1996 / 1000 = 1.996 -> 1
         // (int)1996 / 100 = 19.96 -> 19 % 10 = 9
-         // (int)1996 / 10 = 199.6 - > 199 % 10 = 9
+        // (int)1996 / 10 = 199.6 - > 199 % 10 = 9
         // 1996 % 10 = 6
     }
+
     //Дано четырехзначное число. Проверить истинность высказывания: «Данное число читается одинаково слева направо и справа налево».
-    public function boolean23($a){
-        $first = (int)($a/1000);
-        $second = (int)($a/100) % 10;
-        $third = (int)($a/10) % 10;
+    public function boolean23($a)
+    {
+        $first = (int) ($a / 1000);
+        $second = (int) ($a / 100) % 10;
+        $third = (int) ($a / 10) % 10;
         $fourth = $a % 10;
         echo $first, $second, $third, $fourth;
         dump($first);
         dump($second);
-        if($first == $fourth and $second == $third) return true;
+        if ($first == $fourth and $second == $third) {
+            return true;
+        }
         // if($first == $second) return true;
         // else return false;
     }
-    
+
     public function boolean24($a, $b, $c): bool
     {
-        $discriminant = $b * $b - 4 * $a *$c;
-        if($discriminant >= 0) return true;
+        $discriminant = $b * $b - 4 * $a * $c;
+        if ($discriminant >= 0) {
+            return true;
+        }
     }
+
     //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит во второй координатной четверти».
     public function boolean25(float $x, $y): bool
     {
-        if($x < 0 and $y > 0) return true;
+        if ($x < 0 and $y > 0) {
+            return true;
+        }
     }
+
     //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит в четвертой координатной четверти».
     public function boolean26(float $x, $y): bool
     {
-        if($x > 0 and $y < 0) return true;
+        if ($x > 0 and $y < 0) {
+            return true;
+        }
     }
+
     //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит во второй или третьей координатной четверти»
     public function boolean27(float $x, $y): bool
     {
-        if(($x < 0 and $y > 0) or ($x < 0 and $y < 0)) return true;
+        if (($x < 0 and $y > 0) or ($x < 0 and $y < 0)) {
+            return true;
+        }
     }
+
     //Даны числа x, y. Проверить истинность высказывания: «Точка с координатами (x, y) лежит в первой или третьей координатной четверти».
     public function boolean28(float $x, $y): bool
     {
-        if(($x < 0 and $y > 0) or ($x < 0 and $y < 0)) return true;
-    }
-    /**
-     *
-     */
-    public function showAllBooks()
-    {
-
+        if (($x < 0 and $y > 0) or ($x < 0 and $y < 0)) {
+            return true;
+        }
     }
 
     /**
-     *
+     * Дано целое число. Если оно является положительным, то прибавить к нему 1;
+     * в противном случае не изменять его. Вывести полученное число.
+     * @param  float  $x
      */
-    public function addNewBook()
+    public function if1(float &$x)
     {
-
+        if ($x > 0) {
+            $x++;
+        }
+        echo $x;
     }
 
     /**
-     *
+     * Дано целое число. Если оно является положительным, то прибавить к нему 1;
+     * в противном случае вычесть из него 2. Вывести полученное число.
+     * @param  int  $x
      */
-    public function updateBook()
+    public function if2(int &$x): void
     {
-
+        if ($x > 0) {
+            $x++;
+        } else {
+            $x = $x - 2;
+        }
     }
 
     /**
-     *
+     * Дано целое число. Если оно является положительным, то прибавить к нему 1; если отрицательным,
+     * то вычесть из него 2; если нулевым, то заменить его на 10. Вывести полученное число.
+     * @param  int  $x
      */
-    public function showBookInfo()
+    public function if3(int &$x): void
     {
+        if ($x > 0) {
+            $x++;
+        } elseif ($x < 0) {
+            $x = $x - 2;
+        } else {
+            $x = 10;
+        }
+    }
 
+    /**
+     * Даны три целых числа. Найти количество положительных чисел в исходном наборе.
+     * @param  int  $x
+     * @param $y
+     * @param $z
+     * @return int[]
+     */
+    public function if4(int $x, $y, $z): array
+    {
+        if ($x > 0 and $y > 0 and $z > 0) {
+            $countPositive = 3;
+            $countNegative = 0;
+        } elseif (($x > 0 and $y > 0) or ($y > 0 and $z > 0) or ($x > 0 and $z > 0)) {
+            $countPositive = 2;
+            $countNegative = 1;
+        } elseif ($x > 0 or $y > 0 or $z > 0) {
+            $countPositive = 1;
+            $countNegative = 2;
+        } else {
+            $countPositive = 0;
+            $countNegative = 3;
+        }
+        return [$countPositive, $countNegative];
     }
 }
