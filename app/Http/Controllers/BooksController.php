@@ -88,6 +88,18 @@ class BooksController extends Controller
         $result_x = $this->if2($for_x);
         dump($for_x);
         // return view('welcome', ['numbers' => $numbers]);
+        // $result = $this->if4(-3, -3, 1);
+        // dump($result);
+        $result0 = $this->if6(-3, -3);
+        dump($result0);
+        $result = $this->if6a(-3, -3);
+        dump($result);
+        $result18 = $this->if18(-32, -31, -31);
+        dump($result18);
+        $result16 = $this->if16(-32, -31, -30);
+        dump($result16);
+        $result17a = $this->if17a(-32, -31, -30);
+        dump($result17a);
         return view('welcome')->with('numbers', $numbers);
     }
 
@@ -884,5 +896,383 @@ class BooksController extends Controller
             $countNegative = 3;
         }
         return [$countPositive, $countNegative];
+    }
+
+    /**
+     * Даны два числа. Вывести большее из них.
+     * @param  float  $x
+     * @param $y
+     * @return float
+     */
+    public function if6(float $x, $y): float
+    {
+        if ($x > $y) {
+            return $x;
+        } elseif ($x < $y) {
+            return $y;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * @param  float  $x
+     * @param $y
+     * @return float
+     */
+    public function if6a(float $x, $y): float
+    {
+        // $result = $x > $y ?  $x :  $y;
+        // return $result;
+        return $x > $y ? $x : $y;
+    }
+
+    /**
+     * Даны два числа. Вывести порядковый номер меньшего из них.
+     * @param  float  $x
+     * @param $y
+     * @return int
+     */
+    public function if7(float $x, $y): int
+    {
+        return $x < $y ? 1 : 2;
+    }
+
+    /**
+     * Даны два числа. Вывести вначале большее, а затем меньшее из них.
+     * @param  float  $x
+     * @param $y
+     * @return array
+     */
+    public function if8(float $x, $y): array
+    {
+        return $x < $y ? [$y, $x] : [$x, $y];
+    }
+
+    /**
+     * Даны две переменные целого типа: A и B. Если их значения не равны, то
+     * присвоить каждой переменной сумму этих значений, а если равны, то присвоить
+     * переменным нулевые значения. Вывести новые значения переменных A и B.
+     * @param  int  $x
+     * @param $y
+     * @return int[]
+     */
+    public function if10(int $x, $y): array
+    {
+        if ($x != $y) {
+            $x += $y;
+            $y = $x;
+        } else {
+            $x = 0;
+            $y = 0;
+        }
+        return [$x, $y];
+    }
+
+    /**
+     * Даны две переменные целого типа: A и B. Если их значения не равны, то
+     * присвоить каждой переменной большее из этих значений, а если равны, то
+     * присвоить переменным нулевые значения. Вывести новые значения переменных A и B.
+     * @param  int  $x
+     * @param $y
+     * @return array
+     */
+    public function if11(int $x, $y): array
+    {
+        if ($x != $y) {
+            if ($x > $y) {
+                $y = $x;
+            } else {
+                $x = $y;
+            }
+        } else {
+            $x = 0;
+            $y = 0;
+        }
+        return [$x, $y];
+    }
+
+    /**
+     * Даны три числа. Найти наименьшее из них.
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return float
+     */
+    public function if12(float $x, $y, $z): float
+    {
+        if ($x < $y and $x < $z) {
+            return $x;
+        } elseif ($y < $x and $y < $z) {
+            return $y;
+        } elseif ($z < $x and $z < $y) {
+            return $z;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Даны три числа. Найти среднее из них (то есть число, расположенное между наименьшим и наибольшим).
+     * @param  float  $x
+     * @param  float  $y
+     * @param  float  $z
+     * @return float
+     */
+    public function if13(float $x, float $y, float $z): float
+    {
+        if ($x < $y and $x < $z and $y < $z) {
+            return $y;
+        } elseif ($x < $y and $x < $z and $z < $y) {
+            return $z;
+        } elseif ($y < $x and $y < $z and $x < $z) {
+            return $x;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Даны три числа. Вывести вначале наименьшее, а затем наибольшее из данных чисел.
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return array
+     */
+    public function if14(float $x, $y, $z): array
+    {
+        $array = [$x, $y, $z];
+        sort($array);
+        return [$array[0], $array[2]];
+    }
+
+    /**
+     * Даны три числа. Найти сумму двух наибольших из них.
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return float
+     */
+    public function if15(float $x, $y, $z): float
+    {
+        $array = [$x, $y, $z];
+        sort($array);
+        return $array[1] + $array[2];
+    }
+
+    /**
+     * Даны три переменные вещественного типа: A, B, C. Если их значения упорядочены по возрастанию,
+     * то удвоить их; в противном случае заменить значение каждой переменной на противоположное.
+     * Вывести новые значения переменных A, B, C.
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return float[]|int[]
+     */
+    public function if16(float $x, $y, $z)
+    {
+        $in = [$x, $y, $z];
+        $out = sort($in);
+        if ($in == $out) {
+            return [2 * $x, 2 * $y, 2 * $z];
+        } else {
+            return [-1 * $x, -1 * $y, -1 * $z];
+        }
+    }
+
+    /**
+     * Даны три переменные вещественного типа: A, B, C. Если их значения упорядочены по возрастанию или убыванию,
+     * то удвоить их; в противном случае заменить значение каждой переменной на противоположное.
+     * Вывести новые значения переменных A, B, C.
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return float[]|int[]
+     */
+    public function if17(float $x, $y, $z)
+    {
+        $in = [$x, $y, $z];
+        $out = sort($in);
+        $rout = rsort($in);
+        if ($in == $out or $in == $rout) {
+            return [2 * $x, 2 * $y, 2 * $z];
+        } else {
+            return [-1 * $x, -1 * $y, -1 * $z];
+        }
+    }
+
+    /**
+     * @param  float  $x
+     * @param $y
+     * @param $z
+     * @return float[]|int[]
+     */
+    public function if17a(float $x, $y, $z): array
+    {
+        $in = [$x, $y, $z];
+        $out = sort($in);
+        $rout = rsort($in);
+        return ($in == $out or $in == $rout) ? [2 * $x, 2 * $y, 2 * $z] : [-1 * $x, -1 * $y, -1 * $z];
+    }
+
+    /**
+     * Даны три целых числа, одно из которых отлично от двух других, равных
+     * между собой. Определить порядковый номер числа, отличного от остальных.
+     * @param $x
+     * @param $y
+     * @param $z
+     * @return int
+     */
+    public function if18($x, $y, $z): int
+    {
+        if ($x == $y and $x != $z) {
+            return 3;
+        } elseif ($x == $z and $x != $y) {
+            return 2;
+        } elseif ($y == $z and $y != $x) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Даны четыре целых числа, одно из которых отлично от трех других, равных между собой.
+     * Определить порядковый номер числа, отличного от остальных.
+     * @param $a
+     * @param $b
+     * @param $c
+     * @param $d
+     * @return int
+     */
+    public function if19($a, $b, $c, $d)
+    {
+        // $in = [$a, $b, $c, $d];
+        // $out = sort($in);
+        // $outr = rsort($in);
+        // if($out[0] != $out[1])
+        // foreach($in as $key=>$value){
+        //     if($value)
+        // }
+        /**/
+        if ($a == $b and $b == $c and $c != $d) {
+            return 4;
+        } elseif ($d == $b and $b == $c and $c != $a) {
+            return 1;
+        } elseif ($c == $b and $b == $a and $a != $c) {
+            return 3;
+        } elseif ($a == $d and $c == $d and $d != $b) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * На числовой оси расположены три точки: A, B, C. Определить, какая из
+     * двух последних точек (B или C) расположена ближе к A, и вывести эту точку и ее расстояние от точки A.
+     * @param $a
+     * @param $b
+     * @param $c
+     * @return array|int[]
+     */
+    public function if20($a, $b, $c): array
+    {
+        $length1 = abs($a - $c);
+        $length2 = abs($a - $b);
+        if ($length1 < $length2) {
+            return [$c, $length1];
+        } elseif ($length1 > $length2) {
+            return [$b, $length2];
+        } else {
+            return [0];
+        }
+    }
+
+    /**
+     * Даны целочисленные координаты точки на плоскости. Если точка совпадает с началом координат, то вывести 0.
+     * Если точка не совпадает с началомкоординат, но лежит на оси OX или OY, то вывести соответственно 1 или 2.
+     * Если точка не лежит на координатных осях, то вывести 3.
+     * @param  float  $x
+     * @param  float  $y
+     * @return int
+     */
+    public function if21(float $x, float $y)
+    {
+        if ($x == 0 and $y == 0) {
+            return 0;
+        } elseif ($y == 0) {
+            return 1;
+        } elseif ($x == 0) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
+    /**
+     * Даны координаты точки, не лежащей на координатных осях OX и OY.
+     * Определить номер координатной четверти, в которой находится данная точка.
+     * @param $x
+     * @param $y
+     * @return int
+     */
+    public function if22($x, $y)
+    {
+        if ($x > 0 and $y > 0) {
+            return 1;
+        } elseif ($x < 0 and $y > 0) {
+            return 2;
+        } elseif ($x < 0 and $y < 0) {
+            return 3;
+        } elseif ($x > 0 and $y < 0) {
+            return 4;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * @param  float  $x
+     * @return float|int
+     */
+    public function if24(float $x)
+    {
+        if ($x > 0) {
+            $y = 2 * sin($x);
+        } else {
+            $y = 6 - $x;
+        }
+        return $y;
+    }
+
+    /**
+     * @param  int  $x
+     * @return float|int
+     */
+    public function if25(int $x)
+    {
+        if ($x < -2 and $x > 2) {
+            $y = 2 * $x;
+        } else {
+            $y = -3 * $x;
+        }
+        return $y;
+    }
+
+    /**
+     * @param  float  $x
+     * @return float|int
+     */
+    public function if26(float $x)
+    {
+        if ($x <= 0) {
+            $y = -$x;
+        } elseif ($x > 0 and $x < 2) {
+            $y = $x * $x;
+        } else {
+            $y = 4;
+        }
+        return $y;
     }
 }
