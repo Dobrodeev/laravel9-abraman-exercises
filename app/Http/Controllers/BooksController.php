@@ -90,7 +90,7 @@ class BooksController extends Controller
         // return view('welcome', ['numbers' => $numbers]);
         // $result = $this->if4(-3, -3, 1);
         // dump($result);
-        $result0 = $this->if6(-3, -3);
+        /*$result0 = $this->if6(-3, -3);
         dump($result0);
         $result = $this->if6a(-3, -3);
         dump($result);
@@ -99,7 +99,14 @@ class BooksController extends Controller
         $result16 = $this->if16(-32, -31, -30);
         dump($result16);
         $result17a = $this->if17a(-32, -31, -30);
-        dump($result17a);
+        dump($result17a);*/
+        $result18 = $this->if18(133, 13, 133);
+        dump($result18);
+        $result20 = $this->if20(133, 13, 78);
+        dump($result20);
+        $result21 = $this->if21(-0, -12);
+        dump($result21);
+        dump(request());
         return view('welcome')->with('numbers', $numbers);
     }
 
@@ -1189,6 +1196,13 @@ class BooksController extends Controller
         }
     }
 
+    public function if20a($a, $b, $c)
+    {
+        if($b == $c) return 0;
+        $length1 = abs($a - $c);
+        $length2 = abs($a - $b);
+        return $length1 < $length2 ? [$c, $length1] : [$b, $length2];
+    }
     /**
      * Даны целочисленные координаты точки на плоскости. Если точка совпадает с началом координат, то вывести 0.
      * Если точка не совпадает с началомкоординат, но лежит на оси OX или OY, то вывести соответственно 1 или 2.
