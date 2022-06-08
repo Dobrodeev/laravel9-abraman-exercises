@@ -106,7 +106,10 @@ class BooksController extends Controller
         dump($result20);
         $result21 = $this->if21(-0, -12);
         dump($result21);
-        dump(request());
+//        dump(request());
+        $result29 = $this->if29(-78);
+        dump($result29);
+        $case1 = $this->case1(13);
         return view('welcome')->with('numbers', $numbers);
     }
 
@@ -1154,14 +1157,6 @@ class BooksController extends Controller
      */
     public function if19($a, $b, $c, $d)
     {
-        // $in = [$a, $b, $c, $d];
-        // $out = sort($in);
-        // $outr = rsort($in);
-        // if($out[0] != $out[1])
-        // foreach($in as $key=>$value){
-        //     if($value)
-        // }
-        /**/
         if ($a == $b and $b == $c and $c != $d) {
             return 4;
         } elseif ($d == $b and $b == $c and $c != $a) {
@@ -1196,13 +1191,24 @@ class BooksController extends Controller
         }
     }
 
+    /**
+     * На числовой оси расположены три точки: A, B, C. Определить, какая из
+     * двух последних точек (B или C) расположена ближе к A, и вывести эту точку и ее расстояние от точки A.
+     * @param $a
+     * @param $b
+     * @param $c
+     * @return array|int
+     */
     public function if20a($a, $b, $c)
     {
-        if($b == $c) return 0;
+        if ($b == $c) {
+            return 0;
+        }
         $length1 = abs($a - $c);
         $length2 = abs($a - $b);
         return $length1 < $length2 ? [$c, $length1] : [$b, $length2];
     }
+
     /**
      * Даны целочисленные координаты точки на плоскости. Если точка совпадает с началом координат, то вывести 0.
      * Если точка не совпадает с началомкоординат, но лежит на оси OX или OY, то вывести соответственно 1 или 2.
@@ -1247,6 +1253,9 @@ class BooksController extends Controller
     }
 
     /**
+     * Для данного вещественного x найти значение следующей функции f, принимающей вещественные значения:
+     * 2·sin(x), если x > 0
+     * 6 – x, если x ≤ 0.
      * @param  float  $x
      * @return float|int
      */
@@ -1261,6 +1270,18 @@ class BooksController extends Controller
     }
 
     /**
+     * @param  float  $x
+     * @return float
+     */
+    public function if24a(float $x): float
+    {
+        return $x > 0 ? 2 * sin($x) : 6 - $x;
+    }
+
+    /**
+     * Для данного целого x найти значение следующей функции f, принимающей значения целого типа:
+     * 2·x, если x < –2 или x > 2
+     * –3·x, в противном случае.
      * @param  int  $x
      * @return float|int
      */
@@ -1275,6 +1296,19 @@ class BooksController extends Controller
     }
 
     /**
+     * @param $x
+     * @return float
+     */
+    public function if25a($x): float
+    {
+        return ($x < -2 and $x > 2) ? 2 * $x : -3 * $x;
+    }
+
+    /**
+     * Для данного вещественного x найти значение следующей функции f, принимающей вещественные значения:
+     * –x, если x ≤ 0,
+     * x2, если 0 < x < 2,
+     * 4, если x ≥ 2.
      * @param  float  $x
      * @return float|int
      */
@@ -1288,5 +1322,83 @@ class BooksController extends Controller
             $y = 4;
         }
         return $y;
+    }
+
+    /**
+     * Для данного вещественного x найти значение следующей функции f,
+     * принимающей значения целого типа:
+     * 0, если x < 0,
+     * 1, если x принадлежит [0, 1), [2, 3), …,
+     * –1, если x принадлежит [1, 2), [3, 4), … .
+     * @param $x
+     * @return int
+     */
+    public function if27($x)
+    {
+        if ($x < 0) {
+            return 0;
+        }
+        return ($x >= 0 and $x < 1) ? 1 : -1;
+    }
+
+    /**
+     * Дано целое число. Вывести его строку-описание вида «отрицательное четное число», «нулевое число»,
+     * «положительное нечетное число» и т. д.
+     * @param  int  $x
+     * @return string
+     */
+    public function if29(int $x): string
+    {
+        /*if ($x == 0) {
+            return 'нулевое число 0.';
+        }
+        return ($x < 0 and $x % 2 == 0) ? 'отрицательное четное число' : 'положительное нечетное число';*/
+        if ($x == 0) {
+            return 'нулевое число 0.';
+        } elseif ($x < 0 and $x % 2 == 0) {
+            return 'отрицательное четное число';
+        } elseif ($x < 0 and $x % 2 != 0) {
+            return 'отрицательное нечетное число';
+        } elseif ($x > 0 and $x % 2 != 0) {
+            return 'положительное нечетное число';
+        } elseif ($x > 0 and $x % 2 == 0) {
+            return 'положительное четное число';
+        } else {
+            return 'default';
+        }
+    }
+
+    /**
+     * Дано целое число в диапазоне 1–7. Вывести строку — название дня недели, соответствующее данному числу
+     * (1 — «понедельник», 2 — «вторник» и т. д.).
+     * @param  int  $x
+     */
+    public function case1(int $x): void
+    {
+        switch ($x) {
+            case 1:
+                echo 'Monday';
+                break;
+            case 2 :
+                echo 'Tuesday';
+                break;
+            case 3:
+                echo 'Wednesday';
+                break;
+            case 4:
+                echo 'Thursday';
+                break;
+            case 5:
+                echo 'Friday';
+                break;
+            case 6:
+                echo 'Saturday';
+                break;
+            case 7:
+                echo 'Sunday';
+                break;
+            default:
+                echo 'default';
+        }
     }
 }
