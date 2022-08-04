@@ -4,6 +4,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\UsersExport;
+use App\Exports\MenusExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class BooksController
@@ -43,6 +46,16 @@ class BooksController extends Controller
     public function showBookInfo()
     {
 
+    }
+
+    public function exportUsers() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+    public function exportMenus() 
+    {
+        return Excel::download(new MenusExport, 'menus.xlsx');
     }
 
     /**
@@ -1400,5 +1413,131 @@ class BooksController extends Controller
             default:
                 echo 'default';
         }
+    }
+    public function case2($k)
+    {
+        switch($k){
+            case 1: echo 'E';
+            break;
+            case 2: echo 'D';
+            break;
+            case 3: echo 'C';
+            break;
+            case 4: echo 'B';
+            break;
+            case 5: echo 'A';
+            break;
+            default:
+            echo 'default.';            
+        }
+    }
+    public function case3($month)
+    {
+        switch($month){
+            case 1: echo 'winter';
+            break;
+            case 2: echo 'winter';
+            break;
+            case 3: echo 'spring';
+            break;
+            case 4: echo 'spring';
+            break;
+            case 5: echo 'spring';
+            break;
+            case 6: echo 'summer';
+            break;
+            case 7: echo 'summer';
+            break;
+            case 8: echo 'summer';
+            break;
+            case 9: echo 'autumn';
+            break;
+            case 10: echo 'autumn';
+            break;
+            case 11: echo 'autumn';
+            break;
+            case 12: echo 'winter';
+            break;            
+            default:
+            echo 'default.';            
+        }
+    }
+    public function case4($month)
+    {
+        switch($month){
+            case 1: echo '31';
+            break;
+            case 2: echo '28';
+            break;
+            case 3: echo 31;
+            break;
+            case 4: echo 30;
+            break;
+            case 5: echo 31;
+            break;
+            case 6: echo 30;
+            break;
+            case 7: echo 31;
+            break;
+            case 8: echo 31;
+            break;
+            case 9: echo 30;
+            break;
+            case 10: echo 31;
+            break;
+            case 11: echo 30;
+            break;
+            case 12: echo 31;
+            break;            
+            default:
+            echo 'default.';            
+        }
+    }
+    public function case5(int $n, float $a, float $b): float
+    {   
+        switch($n)
+        {
+            case 1 : $result = $a + $b;
+            break;
+            case 2 : $result = $a - $b;
+            break;
+            case 3 : $result = $a * $b;
+            break;
+            case 4 : $result = $a / $b;;
+            break;
+            default:
+            $result = 'default.';            
+        }
+        return $result;
+    }
+    public function case15(int $n, int $m): string
+    {   
+        switch($n)
+        {
+            case 11 : $result = 'Jack';
+            break;
+            case 12 : $result = 'Queen';
+            break;
+            case 13 : $result = 'King';
+            break;
+            case 14 : $result = 'Ace';
+            break;
+            default:
+            $result = 'default.';            
+        }
+        switch($m)
+        {
+            case 1 : $result .= 'Spades';
+            break;
+            case 2 : $result .= 'Clubs';
+            break;
+            case 3 : $result .= 'Diamonds';
+            break;
+            case 4 : $result .= 'Hearts';
+            break;
+            default:
+            $result = 'default.';   
+        }
+        return $result;
     }
 }
