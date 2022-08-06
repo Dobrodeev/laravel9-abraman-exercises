@@ -27,33 +27,33 @@ class BooksController extends Controller
      */
     private const TEXT_STRING = 'Text is string and simple.';
 
-    public function showAllBooks()
-    {
-
-    }
+/*    public function showAllBooks()
+    {}
 
     public function addNewBook()
-    {
-
-    }
+    {}
 
     public function updateBook()
-    {
-
-    }
+    {}
 
 
     public function showBookInfo()
-    {
+    {}*/
 
-    }
-
-    public function exportUsers() 
+    /**
+     * Экспортируем пользователей из админ-панели Voyager (dummy data, демо данные)
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function exportUsers()
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
 
-    public function exportMenus() 
+    /**
+     * Экспортируем меню из админ панели
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function exportMenus()
     {
         return Excel::download(new MenusExport, 'menus.xlsx');
     }
@@ -64,7 +64,6 @@ class BooksController extends Controller
      */
     public function show($id = '')
     {
-
         //unset($result_three_number);
         // $text = integer11numbers(103);
         /** $number2 = $this->integer6(self::NUMBER_2);
@@ -89,7 +88,8 @@ class BooksController extends Controller
          * dump($integer11numbers);
          */
         // return view('welcome', ['text' => $text]);
-        $numbers = $this->integer11numbers(121);
+        $myNumber = 127;
+        $numbers = $this->integer11numbers($myNumber);
         // $integer11numbers = 121;
 //         dump($integer11numbers);
         $booleanResult = $this->boolean1(0);
@@ -123,7 +123,11 @@ class BooksController extends Controller
         $result29 = $this->if29(-78);
         dump($result29);
         $case1 = $this->case1(13);
-        return view('welcome')->with('numbers', $numbers);
+        echo '<br>';
+        echo $case15 = $this->case15(11, 4);
+        dump($case15);
+        // return view('welcome')->with('numbers', $numbers);
+        return view('admin.profile')->with('numbers', $numbers)->with('myNumber', $myNumber);
     }
 
     /**
@@ -1414,6 +1418,12 @@ class BooksController extends Controller
                 echo 'default';
         }
     }
+
+    /**
+     * Дано целое число K. Вывести строку-описание оценки, соответствующей числу K (1 — «плохо», 2 — «неудовлетворительно»,
+     * 3 — «удовлетворительно», 4 — «хорошо», 5 — «отлично»). Если K не лежит в диапазоне 1–5, то вывести строку «ошибка».
+     * @param $k
+     */
     public function case2($k)
     {
         switch($k){
@@ -1428,9 +1438,15 @@ class BooksController extends Controller
             case 5: echo 'A';
             break;
             default:
-            echo 'default.';            
+            echo 'default.';
         }
     }
+
+    /**
+     * Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 — февраль и т. д.).
+     * Вывести название соответствующего времени года («зима», «весна», «лето», «осень»).
+     * @param $month
+     */
     public function case3($month)
     {
         switch($month){
@@ -1457,11 +1473,17 @@ class BooksController extends Controller
             case 11: echo 'autumn';
             break;
             case 12: echo 'winter';
-            break;            
+            break;
             default:
-            echo 'default.';            
+            echo 'default.';
         }
     }
+
+    /**
+     * Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 — февраль и т. д.).
+     * Определить количество дней в этом месяце для невисокосного года.
+     * @param $month
+     */
     public function case4($month)
     {
         switch($month){
@@ -1488,13 +1510,23 @@ class BooksController extends Controller
             case 11: echo 30;
             break;
             case 12: echo 31;
-            break;            
+            break;
             default:
-            echo 'default.';            
+            echo 'default.';
         }
     }
+
+    /**
+     * Арифметические действия над числами пронумерованы следующим образом: 1 — сложение, 2 — вычитание, 3 — умножение,
+     * 4 — деление. Дан номер действия N (целое число в диапазоне 1–4) и вещественные числа A и B (В не равно 0).
+     * Выполнить над числами указанное действие и вывести результат.
+     * @param  int  $n
+     * @param  float  $a
+     * @param  float  $b
+     * @return float
+     */
     public function case5(int $n, float $a, float $b): float
-    {   
+    {
         switch($n)
         {
             case 1 : $result = $a + $b;
@@ -1506,12 +1538,22 @@ class BooksController extends Controller
             case 4 : $result = $a / $b;;
             break;
             default:
-            $result = 'default.';            
+            $result = 'default.';
         }
         return $result;
     }
+
+    /**
+     * Мастям игральных карт присвоены порядковые номера: 1 — пики, 2 — трефы, 3 — бубны, 4 — червы. Достоинству карт,
+     * старших десятки, присвоены номера: 11 — валет, 12 — дама, 13 — король, 14 — туз.
+     * Даны два целых числа: N — достоинство (6 ≤ N ≤ 14) и M — масть карты (1 ≤ M ≤ 4).
+     * Вывести название соответствующей карты вида «шестерка бубен», «дама червей», «туз треф» и т. п.
+     * @param  int  $n
+     * @param  int  $m
+     * @return string
+     */
     public function case15(int $n, int $m): string
-    {   
+    {
         switch($n)
         {
             case 11 : $result = 'Jack';
@@ -1523,20 +1565,20 @@ class BooksController extends Controller
             case 14 : $result = 'Ace';
             break;
             default:
-            $result = 'default.';            
+            $result = 'default.';
         }
         switch($m)
         {
-            case 1 : $result .= 'Spades';
+            case 1 : $result .= ' Spades';
             break;
-            case 2 : $result .= 'Clubs';
+            case 2 : $result .= ' Clubs';
             break;
-            case 3 : $result .= 'Diamonds';
+            case 3 : $result .= ' Diamonds';
             break;
-            case 4 : $result .= 'Hearts';
+            case 4 : $result .= ' Hearts';
             break;
             default:
-            $result = 'default.';   
+            $result = 'default.';
         }
         return $result;
     }
