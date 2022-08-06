@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Exports\UsersExport;
 use App\Exports\MenusExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class BooksController
@@ -127,7 +128,26 @@ class BooksController extends Controller
         echo $case15 = $this->case15(11, 4);
         dump($case15);
         // return view('welcome')->with('numbers', $numbers);
-        return view('admin.profile')->with('numbers', $numbers)->with('myNumber', $myNumber);
+        $contents = Storage::get('glossary.json');
+        dump($contents);
+        $result = json_decode($contents, false);
+        dump($result);
+        $contentsXML = Storage::get('config.xml');
+        dump($contentsXML);
+        // if(is_string($contentsXML)) print 'It is string';
+        // else print 'not string.';
+        $xml = simplexml_load_string($contentsXML);
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+        dump($array);
+        print $array['default']['payment']['flutterwave_express']['group'];
+        // $result = json_decode($contents, false);
+        // dump($result);
+        // print $contents;
+        // echo '<pre>';
+        // print_r($contents);
+        // echo '</pre>';
+        // return view('admin.profile')->with('numbers', $numbers)->with('myNumber', $myNumber);
     }
 
     /**
