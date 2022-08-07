@@ -130,8 +130,12 @@ class BooksController extends Controller
         // return view('welcome')->with('numbers', $numbers);
         $contents = Storage::get('glossary.json');
         dump($contents);
+        
         $result = json_decode($contents, false);
         dump($result);
+        echo $result->glossary->GlossDiv->title;
+        echo '<br>';
+        print $result->glossary->GlossDiv->GlossList->GlossEntry->Abbrev;
         $contentsXML = Storage::get('config.xml');
         dump($contentsXML);
         // if(is_string($contentsXML)) print 'It is string';
@@ -141,6 +145,9 @@ class BooksController extends Controller
         $array = json_decode($json,TRUE);
         dump($array);
         print $array['default']['payment']['flutterwave_express']['group'];
+        $if26 = $this->if26(13);
+        dump($if26);
+        print $if26;
         // $result = json_decode($contents, false);
         // dump($result);
         // print $contents;
