@@ -8,6 +8,7 @@ use App\Exports\UsersExport;
 use App\Exports\MenusExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Arr;
 
 /**
  * Class BooksController
@@ -136,6 +137,10 @@ class BooksController extends Controller
         echo $result->glossary->GlossDiv->title;
         echo '<br>';
         print $result->glossary->GlossDiv->GlossList->GlossEntry->Abbrev;
+        echo '<br>';
+        $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
+        print '$isAccessible: <br>';
+        print $isAccessible;
         $contentsXML = Storage::get('config.xml');
         dump($contentsXML);
         // if(is_string($contentsXML)) print 'It is string';
