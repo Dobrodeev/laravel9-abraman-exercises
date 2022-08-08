@@ -9,6 +9,7 @@ use App\Exports\MenusExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 /**
  * Class BooksController
@@ -126,8 +127,21 @@ class BooksController extends Controller
         dump($result29);
         $case1 = $this->case1(13);
         echo '<br>';
+        /**
+         * use helpers
+         */
+        echo '<hr>';
+        $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
+        print '$isAccessible: <br>';
+        print $isAccessible.'<br>';
         echo $case15 = $this->case15(11, 4);
         dump($case15);
+        $slice = Str::before($case15, 'Hearts');
+        print 'Str::before '.$slice.'<br>';
+        $path = app_path();
+        print 'app path: '.$path.'<br>';
+        $url = asset('img/photo.jpg');
+        print 'generate url asset(\'img/photo.jpg\'): '.$url.'<br>';
         // return view('welcome')->with('numbers', $numbers);
         $contents = Storage::get('glossary.json');
         dump($contents);
@@ -138,9 +152,7 @@ class BooksController extends Controller
         echo '<br>';
         print $result->glossary->GlossDiv->GlossList->GlossEntry->Abbrev;
         echo '<br>';
-        $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
-        print '$isAccessible: <br>';
-        print $isAccessible;
+        
         $contentsXML = Storage::get('config.xml');
         dump($contentsXML);
         // if(is_string($contentsXML)) print 'It is string';
