@@ -15,4 +15,10 @@ class UsersController extends Controller
         
         return redirect('/')->with('success', 'All good!');
     }
+
+    public function returnFunc()
+    {
+        return 1;
+    } 
+
 }

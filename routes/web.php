@@ -32,6 +32,24 @@ Route::get('/user/{id}/{user2id}', function ($id, $user2) {
 });
 Route::get('/books', [BooksController::class, 'show']);
 
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
+Route::get('/user2', [UsersController::class, 'returnFunc']);
+
+Route::get('/user/{id}', function (string $id) {
+    return 'User '.$id;
+});
+
+Route::get('/posts/{post}/comments/{comment}', function (string $postId, string $commentId) {
+    return 'posts '.$postId. ' comments '.$commentId;
+});
+
+Route::get('/username/{name?}', function (string $name = 'John') {
+    return $name;
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
