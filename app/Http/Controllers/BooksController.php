@@ -30,16 +30,12 @@ class BooksController extends Controller
      */
     private const TEXT_STRING = 'Text is string and simple.';
 
-/*    public function showAllBooks()
+    /*    public function showAllBooks()
     {}
-
     public function addNewBook()
     {}
-
     public function updateBook()
     {}
-
-
     public function showBookInfo()
     {}*/
 
@@ -75,7 +71,7 @@ class BooksController extends Controller
          * echo " Для двузначного числа NUMBER_2 преставили цифры: $number8 <br>";
          * $integer11 = $this->integer11(integer11numbers(self::NUMBER_3));
          */
-//        $integer11 = $this->integer11([1, 2, 1]);
+        //        $integer11 = $this->integer11([1, 2, 1]);
         /** echo " Для трехзанчного числа NUMBER_3 сумма и произведение его цифр: $integer11[0], $integer11[1] <br>";
          * $integer12 = $this->integer12(integer11numbers(self::NUMBER_3));
          * echo 'Число справа налево: '.$integer12.'<br>';
@@ -122,7 +118,7 @@ class BooksController extends Controller
         dump($result20);
         $result21 = $this->if21(-0, -12);
         dump($result21);
-//        dump(request());
+        //        dump(request());
         $result29 = $this->if29(-78);
         dump($result29);
         $case1 = $this->case1(13);
@@ -133,35 +129,35 @@ class BooksController extends Controller
         echo '<hr>';
         $isAccessible = Arr::accessible(['a' => 1, 'b' => 2]);
         print '$isAccessible: <br>';
-        print $isAccessible.'<br>';
+        print $isAccessible . '<br>';
         echo $case15 = $this->case15(11, 4);
         dump($case15);
         $slice = Str::before($case15, 'Hearts');
-        print 'Str::before '.$slice.'<br>';
+        print 'Str::before ' . $slice . '<br>';
         $path = app_path();
-        print 'app path: '.$path.'<br>';
-        //$url = asset('img/photo.jpg');
-        //print 'generate url asset(\'img/photo.jpg\'): '.$url.'<br>';
+        print 'app path: ' . $path . '<br>';
+        // $url = asset('img/photo.jpg');
+        // print 'generate url asset(\'img/photo.jpg\'): ' . $url . '<br>';
         // return view('welcome')->with('numbers', $numbers);
-        //$contents = Storage::get('glossary.json');
-        //dump($contents);
-        
-        //$result = json_decode($contents, false);
-        //dump($result);
-        //echo $result->glossary->GlossDiv->title;
-        //echo '<br>';
-        //print $result->glossary->GlossDiv->GlossList->GlossEntry->Abbrev;
-        echo '<br>';
-        
-        //$contentsXML = Storage::get('config.xml');
-        //dump($contentsXML);
+        // $contents = Storage::get('glossary.json');
+        // dump($contents);
+
+        // $result = json_decode($contents, false);
+        // dump($result);
+        // echo $result->glossary->GlossDiv->title;
+        // echo '<br>';
+        // print $result->glossary->GlossDiv->GlossList->GlossEntry->Abbrev;
+        // echo '<br>';
+
+        // $contentsXML = Storage::get('config.xml');
+        // dump($contentsXML);
         // if(is_string($contentsXML)) print 'It is string';
         // else print 'not string.';
-        //$xml = simplexml_load_string($contentsXML);
-        //$json = json_encode($xml);
-        //$array = json_decode($json,TRUE);
-        //dump($array);
-        //print $array['default']['payment']['flutterwave_express']['group'];
+        // $xml = simplexml_load_string($contentsXML);
+        // $json = json_encode($xml);
+        // $array = json_decode($json,TRUE);
+        // dump($array);
+        // print $array['default']['payment']['flutterwave_express']['group'];
         $if26 = $this->if26(13);
         dump($if26);
         print $if26;
@@ -172,6 +168,8 @@ class BooksController extends Controller
         // print_r($contents);
         // echo '</pre>';
         // return view('admin.profile')->with('numbers', $numbers)->with('myNumber', $myNumber);
+        echo '<br>';
+        $this->minmax20();
     }
 
     /**
@@ -291,7 +289,7 @@ class BooksController extends Controller
     {
         $left = (int) ($number / 10);
         $right = $number % 10;
-        return (int) ($right.$left);
+        return (int) ($right . $left);
     }
 
     /**
@@ -305,7 +303,7 @@ class BooksController extends Controller
         return $first;
     }
 
-//        $first_number = integer9(103);
+    //        $first_number = integer9(103);
 //        echo 'First number 103 is: '.$first_number.'<br>';
     /**
      * Дано трехзначное число. Вывести вначале его последнюю цифру (единицы), а затем — его среднюю цифру (десятки).
@@ -319,7 +317,7 @@ class BooksController extends Controller
         return [$last, $middle];
     }
 
-//        $result_three_number = integer10(103);
+    //        $result_three_number = integer10(103);
 //        echo " Сначала последняя цифра, потом средняя для числа 103: $result_three_number[0], $result_three_number[1]<br>";
     /**
      * Дано трехзначное число. Найти цифры этого числа
@@ -328,7 +326,7 @@ class BooksController extends Controller
      */
     public function integer11numbers(int $number): array
     {
-        $first = (int ) ($number / 100);
+        $first = (int) ($number / 100);
         $second = (int) ($number / 10) % 10;
         $third = $number % 10;
         return [$first, $second, $third];
@@ -346,7 +344,7 @@ class BooksController extends Controller
         $product = array_product($number);
         $sum = $number[0] + $number[1] + $number[2];
         $product = $number[0] * $number[1] * $number[2];*/
-//        return [$sum, $product];
+        //        return [$sum, $product];
         return [array_sum($number), array_product($number)];
     }
 
@@ -357,8 +355,8 @@ class BooksController extends Controller
      */
     public function integer12(array $number): int
     {
-//        $result = (int) ($number[2].$number[1].$number[0]);
-        return (int) ($number[2].$number[1].$number[0]);
+        //        $result = (int) ($number[2].$number[1].$number[0]);
+        return (int) ($number[2] . $number[1] . $number[0]);
     }
 
     /**
@@ -368,7 +366,7 @@ class BooksController extends Controller
      */
     public function integer13(array $number): int
     {
-        return (int) ($number[1].$number[2].$number[0]);
+        return (int) ($number[1] . $number[2] . $number[0]);
     }
 
     /**
@@ -378,7 +376,7 @@ class BooksController extends Controller
      */
     public function integer14(array $number): int
     {
-        return (int) ($number[2].$number[1].$number[0]);
+        return (int) ($number[2] . $number[1] . $number[0]);
     }
 
     /**
@@ -389,7 +387,7 @@ class BooksController extends Controller
      */
     public function integer15(array $number): int
     {
-        return (int) ($number[1].$number[0].$number[2]);
+        return (int) ($number[1] . $number[0] . $number[2]);
     }
 
     /**
@@ -400,7 +398,7 @@ class BooksController extends Controller
      */
     public function integer16(array $number): int
     {
-        return (int) ($number[0].$number[2].$number[1]);
+        return (int) ($number[0] . $number[2] . $number[1]);
     }
 
     /**
@@ -1411,7 +1409,7 @@ class BooksController extends Controller
     public function if29(int $x): string
     {
         /*if ($x == 0) {
-            return 'нулевое число 0.';
+        return 'нулевое число 0.';
         }
         return ($x < 0 and $x % 2 == 0) ? 'отрицательное четное число' : 'положительное нечетное число';*/
         if ($x == 0) {
@@ -1440,7 +1438,7 @@ class BooksController extends Controller
             case 1:
                 echo 'Monday';
                 break;
-            case 2 :
+            case 2:
                 echo 'Tuesday';
                 break;
             case 3:
@@ -1470,19 +1468,24 @@ class BooksController extends Controller
      */
     public function case2($k)
     {
-        switch($k){
-            case 1: echo 'E';
-            break;
-            case 2: echo 'D';
-            break;
-            case 3: echo 'C';
-            break;
-            case 4: echo 'B';
-            break;
-            case 5: echo 'A';
-            break;
+        switch ($k) {
+            case 1:
+                echo 'E';
+                break;
+            case 2:
+                echo 'D';
+                break;
+            case 3:
+                echo 'C';
+                break;
+            case 4:
+                echo 'B';
+                break;
+            case 5:
+                echo 'A';
+                break;
             default:
-            echo 'default.';
+                echo 'default.';
         }
     }
 
@@ -1493,33 +1496,45 @@ class BooksController extends Controller
      */
     public function case3($month)
     {
-        switch($month){
-            case 1: echo 'winter';
-            break;
-            case 2: echo 'winter';
-            break;
-            case 3: echo 'spring';
-            break;
-            case 4: echo 'spring';
-            break;
-            case 5: echo 'spring';
-            break;
-            case 6: echo 'summer';
-            break;
-            case 7: echo 'summer';
-            break;
-            case 8: echo 'summer';
-            break;
-            case 9: echo 'autumn';
-            break;
-            case 10: echo 'autumn';
-            break;
-            case 11: echo 'autumn';
-            break;
-            case 12: echo 'winter';
-            break;
+        switch ($month) {
+            case 1:
+                echo 'winter';
+                break;
+            case 2:
+                echo 'winter';
+                break;
+            case 3:
+                echo 'spring';
+                break;
+            case 4:
+                echo 'spring';
+                break;
+            case 5:
+                echo 'spring';
+                break;
+            case 6:
+                echo 'summer';
+                break;
+            case 7:
+                echo 'summer';
+                break;
+            case 8:
+                echo 'summer';
+                break;
+            case 9:
+                echo 'autumn';
+                break;
+            case 10:
+                echo 'autumn';
+                break;
+            case 11:
+                echo 'autumn';
+                break;
+            case 12:
+                echo 'winter';
+                break;
             default:
-            echo 'default.';
+                echo 'default.';
         }
     }
 
@@ -1530,33 +1545,45 @@ class BooksController extends Controller
      */
     public function case4($month)
     {
-        switch($month){
-            case 1: echo '31';
-            break;
-            case 2: echo '28';
-            break;
-            case 3: echo 31;
-            break;
-            case 4: echo 30;
-            break;
-            case 5: echo 31;
-            break;
-            case 6: echo 30;
-            break;
-            case 7: echo 31;
-            break;
-            case 8: echo 31;
-            break;
-            case 9: echo 30;
-            break;
-            case 10: echo 31;
-            break;
-            case 11: echo 30;
-            break;
-            case 12: echo 31;
-            break;
+        switch ($month) {
+            case 1:
+                echo '31';
+                break;
+            case 2:
+                echo '28';
+                break;
+            case 3:
+                echo 31;
+                break;
+            case 4:
+                echo 30;
+                break;
+            case 5:
+                echo 31;
+                break;
+            case 6:
+                echo 30;
+                break;
+            case 7:
+                echo 31;
+                break;
+            case 8:
+                echo 31;
+                break;
+            case 9:
+                echo 30;
+                break;
+            case 10:
+                echo 31;
+                break;
+            case 11:
+                echo 30;
+                break;
+            case 12:
+                echo 31;
+                break;
             default:
-            echo 'default.';
+                echo 'default.';
         }
     }
 
@@ -1571,18 +1598,22 @@ class BooksController extends Controller
      */
     public function case5(int $n, float $a, float $b): float
     {
-        switch($n)
-        {
-            case 1 : $result = $a + $b;
-            break;
-            case 2 : $result = $a - $b;
-            break;
-            case 3 : $result = $a * $b;
-            break;
-            case 4 : $result = $a / $b;;
-            break;
+        switch ($n) {
+            case 1:
+                $result = $a + $b;
+                break;
+            case 2:
+                $result = $a - $b;
+                break;
+            case 3:
+                $result = $a * $b;
+                break;
+            case 4:
+                $result = $a / $b;
+                ;
+                break;
             default:
-            $result = 'default.';
+                $result = 'default.';
         }
         return $result;
     }
@@ -1598,32 +1629,103 @@ class BooksController extends Controller
      */
     public function case15(int $n, int $m): string
     {
-        switch($n)
-        {
-            case 11 : $result = 'Jack';
-            break;
-            case 12 : $result = 'Queen';
-            break;
-            case 13 : $result = 'King';
-            break;
-            case 14 : $result = 'Ace';
-            break;
+        switch ($n) {
+            case 11:
+                $result = 'Jack';
+                break;
+            case 12:
+                $result = 'Queen';
+                break;
+            case 13:
+                $result = 'King';
+                break;
+            case 14:
+                $result = 'Ace';
+                break;
             default:
-            $result = 'default.';
+                $result = 'default.';
         }
-        switch($m)
-        {
-            case 1 : $result .= ' Spades';
-            break;
-            case 2 : $result .= ' Clubs';
-            break;
-            case 3 : $result .= ' Diamonds';
-            break;
-            case 4 : $result .= ' Hearts';
-            break;
+        switch ($m) {
+            case 1:
+                $result .= ' Spades';
+                break;
+            case 2:
+                $result .= ' Clubs';
+                break;
+            case 3:
+                $result .= ' Diamonds';
+                break;
+            case 4:
+                $result .= ' Hearts';
+                break;
             default:
-            $result = 'default.';
+                $result = 'default.';
         }
         return $result;
+    }
+
+    /* доп блок
+     * Дано целое число N и набор из N целых чисел. Найти общее количество экстремальных 
+     * (то есть минимальных и максимальных) элементов из данного набора.
+     */
+    public function minmax20()
+    {
+        // $arr = [1];
+        // for ($i = 1; $i < 10; $i++) {
+        //     $num = rand(0, 100);
+        //     ($arr[$i - 1] < $num or $num == 100) ? $arr[] = $num : $i--;
+        // }
+        // dump($arr);
+
+        // створюємо масив з випадковими числами
+        // $array = array();
+        // for ($i = 0; $i < 10; $i++) {
+        //     $array[] = rand(1, 100);
+        // }
+
+        // // знаходимо максимальне значення у масиві
+        // $max_value = max($array);
+
+        // // знаходимо кількість максимальних елементів у масиві
+        // $count = 0;
+        // foreach ($array as $value) {
+        //     if ($value == $max_value) {
+        //         $count++;
+        //     }
+        // }
+
+        // // виводимо результат
+        // echo "Масив: " . implode(", ", $array) . "<br>";
+        // echo "Максимальне значення: " . $max_value . "<br>";
+        // echo "Кількість максимальних елементів: " . $count . "<br>";
+        // створюємо масив з випадковими числами
+
+        $array = array();
+        for ($i = 0; $i < 10; $i++) {
+            $array[] = rand(1, 10);
+        }
+
+        // знаходимо мінімальне та максимальне значення у масиві
+        $min_value = min($array);
+        $max_value = max($array);
+
+        // знаходимо кількість мінімальних та максимальних елементів у масиві
+        $count_min = 0;
+        $count_max = 0;
+        foreach ($array as $value) {
+            if ($value == $min_value) {
+                $count_min++;
+            }
+            if ($value == $max_value) {
+                $count_max++;
+            }
+        }
+
+        // виводимо результат
+        echo "Масив: " . implode(", ", $array) . "<br>";
+        echo "Мінімальне значення: " . $min_value . "<br>";
+        echo "Кількість мінімальних елементів: " . $count_min . "<br>";
+        echo "Максимальне значення: " . $max_value . "<br>";
+        echo "Кількість максимальних елементів: " . $count_max . "<br>";
     }
 }
