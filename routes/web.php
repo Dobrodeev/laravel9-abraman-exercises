@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// додаємо статтю
+Route::get('article', [ArticlesController::class, 'article']);
+// зберігаємо статтю
+Route::get('article-add', [ArticlesController::class, 'store'])->name('store'); 
+
 // с помощью Laravel Excel выгружаем данные в файл users.xlsx
 Route::get('export-users/', [BooksController::class, 'exportUsers']);
 Route::get('export-menus/', [BooksController::class, 'exportMenus']);
@@ -30,6 +36,7 @@ Route::get('/user/{id}/{user2id}', function ($id, $user2) {
     echo $id.'<br>';
     echo $user2;
 });
+
 Route::get('/books', [BooksController::class, 'show']);
 
 Route::get('/greeting', function () {
