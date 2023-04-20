@@ -6,6 +6,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MenuItemsController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::get('export-posts/', [PostController::class, 'export']);
 Route::get('export-users/', [BooksController::class, 'exportUsers']);
 Route::get('export-menus/', [BooksController::class, 'exportMenus']);
 Route::get('export-menu-items/', [MenuItemsController::class, 'export']);
+Route::get('export-settings/', [SettingsController::class, 'export']);
 
 // Import
 Route::get('import-users', [UsersController::class, 'import']);
