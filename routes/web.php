@@ -5,6 +5,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MenuItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('export-posts/', [PostController::class, 'export']);
 // с помощью Laravel Excel выгружаем данные в файл users.xlsx
 Route::get('export-users/', [BooksController::class, 'exportUsers']);
 Route::get('export-menus/', [BooksController::class, 'exportMenus']);
+Route::get('export-menu-items/', [MenuItemsController::class, 'export']);
+
 // Import
 Route::get('import-users', [UsersController::class, 'import']);
 
