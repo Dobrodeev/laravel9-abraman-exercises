@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,9 @@ Route::get('/', function () {
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);
 // зберігаємо статтю
-Route::get('article-add', [ArticlesController::class, 'store'])->name('store'); 
+Route::get('article-add', [ArticlesController::class, 'store'])->name('store');
+
+Route::get('export-posts/', [PostController::class, 'export']);
 
 // с помощью Laravel Excel выгружаем данные в файл users.xlsx
 Route::get('export-users/', [BooksController::class, 'exportUsers']);
