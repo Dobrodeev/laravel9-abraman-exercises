@@ -38,6 +38,7 @@ Route::get('export-settings/', [SettingsController::class, 'export']);
 
 // Import
 Route::get('import-users', [UsersController::class, 'import']);
+Route::get('import-posts', [PostController::class, 'import']);
 
 Route::get('/user/{id}/{user2id}', function ($id, $user2) {
     echo '/user/{id}/{user2id}<br>';
