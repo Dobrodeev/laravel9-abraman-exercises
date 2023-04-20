@@ -18,7 +18,7 @@
     <body>
 
         <div>
-            <form action="/public/article-add" method="get">
+            <form action="/article-add" method="get">
                 <div class="mb-3">
                     <label for="authorID" class="form-label">Author ID</label>
                     <input type="text" class="form-control" id="authorID" name="authorID">
