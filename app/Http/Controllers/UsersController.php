@@ -19,6 +19,25 @@ class UsersController extends Controller
     public function returnFunc()
     {
         return 1;
-    } 
+    }
+    
+    public function returnID($id) 
+    {
+        return $id;
+    }
 
+    public function noID() 
+    {
+        echo 'Користувач не зареєстрований';
+    }
+
+    public function form() 
+    {
+        return view('article');
+    }
+
+    public function formConfirm() 
+    {
+        echo 'Форму прийнято';
+    }
 }

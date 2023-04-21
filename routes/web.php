@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/id/{id}', [UsersController::class, 'returnID']);
+Route::get('/id', [UsersController::class, 'noID']);
+Route::get('/form', [UsersController::class, 'form']);
+Route::post('/form', [UsersController::class, 'formConfirm']);
+    
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);
 // зберігаємо статтю
