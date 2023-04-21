@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MenuItemsController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::get('/id/{id}', [UsersController::class, 'returnID']);
 Route::get('/id', [UsersController::class, 'noID']);
 Route::get('/form', [UsersController::class, 'form']);
 Route::post('/form', [UsersController::class, 'formConfirm']);
+
+Route::get('/tasks', [TasksController::class, 'index']);
     
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);
