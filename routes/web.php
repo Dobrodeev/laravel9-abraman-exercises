@@ -8,6 +8,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\MenuItemsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DataTypesController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +34,12 @@ Route::get('/form', [UsersController::class, 'form']);
 Route::post('/form', [UsersController::class, 'formConfirm']);
 
 Route::get('/tasks', [TasksController::class, 'index']);
+
+Route::get('/export-categories', [CategoriesController::class, 'export']);
+Route::get('/export-data-types', [DataTypesController::class, 'export']);
+
+Route::get('/import-pages', [PagesController::class, 'import']);
+Route::get('/import-roles', [RolesController::class, 'import']);
     
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);

@@ -20,7 +20,7 @@ class UsersImport implements ToModel
            'role_id'     => $row[1],
            'name'    => $row[2], 
            'email' => $row[3],
-           'avater' => $row[4],
+           'avatar' => $row[4],
            'password'=> $row[5],
         ]);
     }
