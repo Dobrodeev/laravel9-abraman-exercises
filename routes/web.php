@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DataTypesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\SubjectsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::get('/export-data-types', [DataTypesController::class, 'export']);
 
 Route::get('/import-pages', [PagesController::class, 'import']);
 Route::get('/import-roles', [RolesController::class, 'import']);
+
+// Отримуємо предмети із таблиці
+Route::get('/get-subjects', [SubjectsController::class, 'index']);
+
     
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);
