@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+Route::redirect('/helloworld', 'greeting');
+
+// сказати привіт користувачу з ім'ям з лише буквами
+Route::get('/user/{name}', function (string $name) {
+    return 'Hello user '.$name;
+})->whereAlpha('name');
+
+Route::view('/hello/{name}', 'hello')->whereAlpha('name');;
