@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\GiftController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +29,8 @@ Route::get('/user/{name}', function (string $name) {
     return 'Hello user '.$name;
 })->whereAlpha('name');
 
-Route::view('/hello/{name}', 'hello')->whereAlpha('name');;
+Route::view('/hello/{name}', 'hello')->whereAlpha('name');
+
+
+Route::get('/giftform', [GiftController::class, 'show']);
+Route::post('/giftform', [GiftController::class, 'index'])->name('gift-response');
