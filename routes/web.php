@@ -13,6 +13,7 @@ use App\Http\Controllers\DataTypesController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SubjectsController;
+use App\Http\Controllers\LogsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/form', [UsersController::class, 'form']);
 Route::post('/form', [UsersController::class, 'formConfirm']);
 
 Route::get('/tasks', [TasksController::class, 'index']);
+Route::get('/logs', [LogsController::class, 'index']);
 
 Route::get('/export-categories', [CategoriesController::class, 'export']);
 Route::get('/export-data-types', [DataTypesController::class, 'export']);
