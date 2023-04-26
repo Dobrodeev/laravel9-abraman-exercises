@@ -19,21 +19,20 @@
 
         <div>
             <!-- <h1>{{ $tasks }}</h1> -->
-            @foreach ($tasks as $task)
-                <p>This is task {{ $task->id }}: {{ $task->name }}, {{ $task->counter }} </p>
-            @endforeach
-
+            
             <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Counter</th>
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach ($tasks as $task)
+                      <tr><td>{{ $task->id }}</td><td>{{ $task->name }}</td><td>{{ $task->counter }}</td></tr>
+                  @endforeach
+                  <!-- <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -50,7 +49,7 @@
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>@twitter</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
             </table>
         </div>
