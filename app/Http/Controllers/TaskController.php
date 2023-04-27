@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Task;
-use App\Models\Log;
+use App\Models\TaskLog;
 
 class TaskController extends Controller
 {
@@ -15,7 +15,7 @@ class TaskController extends Controller
         ++$task->counter;
         $task->save();
         
-        Log::create(['task_id' => $id, 'status' => 0]);
+        TaskLog::create(['task_id' => $id, 'status' => 0]);
         
         return redirect('/tasks');
     }
