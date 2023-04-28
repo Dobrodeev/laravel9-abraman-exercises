@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskLogController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,8 @@ Route::get('/taskupdate/{id}', [TaskController::class, 'update'])->name('task-up
 
 Route::view('/tasklogqueue', 'log-queue');
 Route::get('/tasklogupdate', [TaskLogController::class, 'update'])->name('tasklog-update');
+
+
+Route::get('/form', [FormController::class, 'show']);
+Route::get('/formresponse', [FormController::class, 'store'])->name('form-response');
+

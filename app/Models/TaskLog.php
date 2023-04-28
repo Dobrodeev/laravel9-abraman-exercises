@@ -10,6 +10,14 @@ class TaskLog extends Model
     use HasFactory;
     
     protected $fillable = ['task_id', 'status'];
-    // У таблиці немає поля updated_at, тож воно неоновлюватиметься
-    const UPDATED_AT = null;
+    
+    public function getQueuedRecords()
+    {
+        return TaskLog::where('status', 0);
+    }
+    
+    public function getDoneRecords()
+    {
+        return TaskLog::where('status', 1);
+    }
 }
