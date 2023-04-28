@@ -18,10 +18,10 @@
     <body>
 
         <div>
-            <form action="/article-add" method="get">
+            <form action="/public/article-add" method="get">
                 <div class="mb-3">
-                    <label for="authorID" class="form-label">Author ID</label>
-                    <input type="text" class="form-control" id="authorID" name="authorID">
+                    <label for="author_id" class="form-label">Author ID</label>
+                    <input type="text" class="form-control" id="author_id" name="author_id">
                 </div>
                 <div class="mb-3">
                     <label for="title" class="form-label">Article title</label>

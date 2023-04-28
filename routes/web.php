@@ -51,7 +51,7 @@ Route::get('/get-subjects', [SubjectsController::class, 'index']);
 // додаємо статтю
 Route::get('article', [ArticlesController::class, 'article']);
 // зберігаємо статтю
-Route::get('article-add', [ArticlesController::class, 'store'])->name('store');
+Route::get('/article-add', [ArticlesController::class, 'store'])->name('store');
 
 Route::get('export-posts/', [PostController::class, 'export']);
 
