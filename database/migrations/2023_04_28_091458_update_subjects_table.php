@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Subjects extends Migration
+class UpdateSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class Subjects extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
-            $table->string('teacher_name');
-            $table->string('subject');
-            $table->enum('assessment-exam', ['assessment', 'exam']);
-            $table->timestamps();
+        Schema::table('subjects', function (Blueprint $table) {
+            $table->enum('assessment_exam', ['assessment', 'exam'])->after('subject');
         });
     }
 
@@ -29,6 +25,6 @@ class Subjects extends Migration
      */
     public function down()
     {
-        // Schema::drop('subjects');
+        //
     }
 }
