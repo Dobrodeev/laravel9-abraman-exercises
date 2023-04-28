@@ -48,9 +48,9 @@ class ArticlesController extends Controller
         $article->content = $request->input('content');
         echo $article;
  
-        // $article->save();
+        $article->save();
  
-        // return redirect('article');
+        return redirect('article');
     }
     
 }
