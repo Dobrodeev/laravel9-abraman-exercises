@@ -29,6 +29,6 @@ class Subjects extends Migration
      */
     public function down()
     {
-        Schema::drop('subjects');
+        // Schema::drop('subjects');
     }
 }

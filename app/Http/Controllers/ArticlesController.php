@@ -45,14 +45,10 @@ class ArticlesController extends Controller
         $article->author_id = $request->input('author_id');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        $request = $request->all(); 
-
-        $author_id = $request->input('author_id');
-        echo $author_id;
-        dump($article);
-        // $article->save();
  
-        // return redirect('article');
+        $article->save();
+ 
+        return redirect('article');
     }
     
 }
