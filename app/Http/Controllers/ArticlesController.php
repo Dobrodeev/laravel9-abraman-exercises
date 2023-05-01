@@ -37,17 +37,19 @@ class ArticlesController extends Controller
     /**
      * Store a new flight in the database.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)//: RedirectResponse
     {
         // Validate the request...
  
         $article = new Article;
- 
         $article->author_id = $request->input('author_id');
         $article->title = $request->input('title');
         $article->content = $request->input('content');
-        echo $article;
- 
+        $request = $request->all(); 
+
+        $author_id = $request->input('author_id');
+        echo $author_id;
+        dump($article);
         // $article->save();
  
         // return redirect('article');
