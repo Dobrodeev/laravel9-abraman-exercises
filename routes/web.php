@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\LoadExcelFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/user/{id}/{user2id}', function ($id, $user2) {
     echo $user2;
 });
 Route::get('/books', [BooksController::class, 'show']);
+Route::get('/load-excel-file', [LoadExcelFileController::class, 'show']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
