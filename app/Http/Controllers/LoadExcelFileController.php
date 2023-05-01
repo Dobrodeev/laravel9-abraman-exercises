@@ -12,6 +12,15 @@ class LoadExcelFileController extends Controller
      */
     public function show(): View
     {
-        return view('loadfiles.load-excel');
+        // echo 'show() from UserController.';
+        // return view('user.input-excel-file');
+        return view('excel.excel-table');
+    }
+    public function senfForm(Request $request)
+    {
+        $file = $request->file('image');
+        // $file = $request->file('image')->store('images');
+        // $file = $request->file('image')->store('images', 'public');
+        dump($file->path());
     }
 }
