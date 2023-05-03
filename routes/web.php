@@ -6,6 +6,7 @@ use App\Http\Controllers\GiftController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskLogController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\FavoritePlaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,10 @@ Route::get('/tasklogupdate', [TaskLogController::class, 'update'])->name('tasklo
 Route::get('/form', [FormController::class, 'show']);
 Route::get('/formresponse', [FormController::class, 'store'])->name('form-response');
 
+
+Route::view('/places', 'favorite-places.places')->name('show-places');
+Route::get('/places/create', [FavoritePlaceController::class, 'create'])->name('create-favorite-place');
+Route::post('/places/create', [FavoritePlaceController::class, 'add'])->name('add-favorite-place');
+Route::view('places/{id}', 'favorite-places.place-info')->name('show-place-info');
+Route::get('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhotoForm'])->name('add-place-photo');
+Route::post('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhoto'])->name('add-place-photo');
