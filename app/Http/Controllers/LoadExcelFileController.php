@@ -20,7 +20,7 @@ class LoadExcelFileController extends Controller
     {
         $file = $request->file('image');
         // $file = $request->file('image')->store('images');
-        // $file = $request->file('image')->store('images', 'public');
-        dump($file->path());
+        $file = $request->file('image')->store('images', 'public');
+        return 'Данные успешно загружены.';
     }
 }

@@ -10,7 +10,7 @@
     <h1>Hello, world!</h1>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <!-- <form> -->
-    <form action="/public/upload-excel-file" method="post" enctype="multipart/form-data">
+    <form action="<? echo url('/upload-excel-file');?>" method="post" enctype="multipart/form-data">
         @csrf
   <!-- <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
