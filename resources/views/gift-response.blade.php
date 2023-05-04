@@ -2,7 +2,6 @@
     use Illuminate\Support\Facades\DB;
 
     $gift = DB::table('gifts')->get()[DB::table('gifts')->get()->count() - 1];
-    //$gift = current( end($gifts) );
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +11,12 @@
         <title>Придбання автомобіля</title>
     </head>
     <body>
-        <?php //dd($gift); ?>
-    
         <p> Привіт, 
             <?php echo ($gift->person_sex == 'чоловіча')? "пане" : "пані" ?> 
             <?php echo $gift->full_name ?>. 
         </p>
         
-        <p> Ви народилися <?php $gift->birth_date ?>. </p>
+        <p> Ви народилися <?php echo $gift->birth_date; ?>. </p>
         
         <p> 
             Ви <?php ($gift->is_will_greet)? "" : "не" ?> будете
@@ -29,9 +26,9 @@
         <p>
             Ви хочете піти 
                 <?php echo ($gift->is_go_to_cinema)? 'в кінотеатр, ' : 'не в кінотеатр, ' ?>
-                <?php echo ($gift->is_go_to_cafe)? 'в у кафе, , ' : 'не в кафе,' ?>
+                <?php echo ($gift->is_go_to_cafe)? 'у кафе, , ' : 'не в кафе,' ?>
                 <?php echo ($gift->is_go_to_coffeehouse)? 'у кав’ярню, ' : 'не в кав’ярню, ' ?>
-                <?php echo ($gift->is_go_to_pizzeria)? 'у піцерію, "' : 'не в піцерію, ' ?>
+                <?php echo ($gift->is_go_to_pizzeria)? 'у піцерію, ' : 'не в піцерію, ' ?>
                 <?php echo ($gift->is_go_to_flat)? 'у квартиру, ' : 'не в квартиру, ' ?>
                 <?php echo ($gift->is_go_to_cottage)? 'на дачу, ' : 'не на дачу, ' ?>
                 <?php echo ($gift->is_go_at_picnic)? 'на пікнік, ' : 'не на пікнік, ' ?>
