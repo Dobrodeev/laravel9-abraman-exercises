@@ -37,7 +37,7 @@ Route::view('/hello/{name}', 'hello')->whereAlpha('name');
 
 
 Route::get('/giftform', [GiftController::class, 'show']);
-Route::post('/giftform', [GiftController::class, 'index'])->name('gift-response');
+Route::post('/giftform', [GiftController::class, 'response'])->name('gift-response');
 
 Route::view('/tasks', 'tasks');
 Route::get('/taskupdate/{id}', [TaskController::class, 'update'])->name('task-update');
