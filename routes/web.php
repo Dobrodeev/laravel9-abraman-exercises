@@ -7,6 +7,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskLogController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FavoritePlaceController;
+use App\Http\Controllers\CarOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,6 @@ Route::post('/places/create', [FavoritePlaceController::class, 'add'])->name('ad
 Route::view('places/{id}', 'favorite-places.place-info')->name('show-place-info');
 Route::get('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhotoForm'])->name('add-place-photo');
 Route::post('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhoto'])->name('add-place-photo');
+
+Route::get('/car-order', [CarOrderController::class, 'show'])->name('car-order-form');
+Route::post('/car-order', [CarOrderController::class, 'response'])->name('car-order-response');
