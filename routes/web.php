@@ -14,6 +14,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\SubjectsController;
 use App\Http\Controllers\LogsController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::get('/import-roles', [RolesController::class, 'import']);
 
 // Отримуємо предмети із таблиці
 Route::get('/get-subjects', [SubjectsController::class, 'index']);
+
+//Завантаження фото
+Route::get('/load-photo', [PhotoController::class, 'index']);
+Route::post('/upload-photo', [PhotoController::class, 'upload']);
 
     
 // додаємо статтю
