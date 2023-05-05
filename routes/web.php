@@ -8,6 +8,7 @@ use App\Http\Controllers\TaskLogController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FavoritePlaceController;
 use App\Http\Controllers\CarOrderController;
+use App\Http\Controllers\UniversityAdmissionApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,16 @@ Route::view('places/{id}', 'favorite-places.place-info')->name('show-place-info'
 Route::get('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhotoForm'])->name('add-place-photo');
 Route::post('places/{id}/photos/add', [FavoritePlaceController::class, 'addPhoto'])->name('add-place-photo');
 
+
 Route::get('/car-order', [CarOrderController::class, 'show'])->name('car-order-form');
 Route::post('/car-order', [CarOrderController::class, 'response'])->name('car-order-response');
+
+
+Route::get(
+    '/university-admission-application',
+    [UniversityAdmissionApplicationController::class, 'show']
+)->name('university-admission-application-form');
+Route::get(
+    '/university-admission-application-response',
+    [UniversityAdmissionApplicationController::class, 'response']
+)->name('university-admission-application-response');
