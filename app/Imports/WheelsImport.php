@@ -17,7 +17,10 @@ class WheelsImport implements ToModel, WithMultipleSheets
     public function sheets(): array
     {
         return [
-            'steelWheels' => new WheelsImport(),
+            'steelWheels' => new FirstSheetImport(),
+            // 'cargoWheels' => new SecondSheetImport(),
+            // 'alloyWheels' => new ThirdSheetImport(),
+            // 'kits' => new FourthSheetImport(),
         ];
     }
     public function model(array $row)
