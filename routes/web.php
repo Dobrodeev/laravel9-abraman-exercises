@@ -9,6 +9,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\FavoritePlaceController;
 use App\Http\Controllers\CarOrderController;
 use App\Http\Controllers\UniversityAdmissionApplicationController;
+use App\Http\Controllers\WheelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +73,5 @@ Route::get(
     '/university-admission-application-response',
     [UniversityAdmissionApplicationController::class, 'response']
 )->name('university-admission-application-response');
+
+Route::get('/import-wheels', [WheelController::class, 'import']);
